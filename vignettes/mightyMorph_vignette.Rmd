@@ -1,0 +1,22 @@
+---
+title: "Constructing a morphospace for a partial-wing skeleton"
+author: "Daniel B. Thomas"
+date: date: "`r Sys.Date()`"
+output: 
+  html_vignette: 
+    default:
+    toc: true
+    number_sections: false
+vignette: >
+  %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+

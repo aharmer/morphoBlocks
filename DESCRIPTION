@@ -12,10 +12,13 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    RGCCA
-    geomorph
-    Rvcg
-    Morpho
-    phytools
     adephylo
     data.table
+    geomorph
+    Morpho
+    phytools
+    RGCCA
+    Rvcg
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
