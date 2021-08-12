@@ -13,9 +13,33 @@
 #' By default \code{formatBlock} will perform generalised Procustes analysis (gpa) on the block using \code{gpagen} from the \code{geomorph} package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set \code{gpa = FALSE}. Centroid sizes of the original configurations should be supplied using the \code{cs} argument if \code{gpa = FALSE}, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
 #' \code{formatBlock} is a wrapper function for the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
 #'
-#' @return
-
-
+#' @return a 'block' object, used for downstream analyses. The list contains the elements:
+#' \itemize{
+#'   \item \code{raw} collation of original configuration data
+#'   \item \code{gpa.3D} if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 3D array. If \code{gpa = FALSE}, original configuration data organised into a 3D array (may duplicate \code{raw})
+#'   \item \code{gpa.2D} if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 2D matrix. If \code{gpa = FALSE}, original configuration data organised into a 2D matrix (may duplicate \code{raw})
+#'   \item \code{centroid} centroid sizes either calculated from original configurations or supplied using the \code{cs} argument
+#'   \item \code{p} number of points in the configurations of each data block
+#'   \item \code{k} number of dimensions that the points in each configuration has
+#'   \item \code{n} number of configurations included in each data block
+#'   }
+#'
+#' @examples
+#' # Format the head and tail data from the Plethodon dataset in the geomorph library
+#' library(geomorph)
+#' data(larvalMorph)
+#' block1 = formatBlock(block = larvalMorph$headcoords, curves = larvalMorph$head.sliders)
+#' block2 = formatBlock(block = larvalMorph$tailcoords, curves = larvalMorph$tail.sliders)
+#'
+#'@references
+#'Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+#'Schlager S. 2017. Morpho and Rvcg–shape analysis in R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
+#'Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+#'Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
+#'
+#' @import Morpho
+#' @import geomorph
+#' @export
 formatBlock = function (block, curves = NULL, surfaces = NULL, cs = NULL, k = 2, gpa = T) {
 
   require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
