@@ -1,4 +1,4 @@
-Package: mightyMorph
+Package: morphoBlocks
 Type: Package
 Title: Constructing a Multiple-Part Morphospace Using a Multiple-Block Method
 Version: 0.1.0
@@ -7,18 +7,18 @@ Author: as.person(c(
     "Aaron Harmer <a.harmer@massey.ac.nz> [aut]"
   ))
 Maintainer: Daniel Thomas <d.b.thomas@massey.ac.nz>
-Description: The 'mightyMorph' package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
+Description: The 'morphoBlocks' package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: 
-    adephylo
-    data.table
-    geomorph
-    Morpho
-    phytools
-    RGCCA
-    Rvcg
+  adephylo,
+  data.table,
+  geomorph,
+  Morpho,
+  phytools,
+  RGCCA,
+  Rvcg
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
