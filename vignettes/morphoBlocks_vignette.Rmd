@@ -1,14 +1,14 @@
 ---
 title: "Constructing a morphospace for a partial-wing skeleton"
 author: "Daniel B. Thomas"
-date: date: "`r Sys.Date()`"
+date: "`r Sys.Date()`"
 output: 
   html_vignette: 
     default:
     toc: true
     number_sections: false
 vignette: >
-  %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
+  %\VignetteIndexEntry{Getting started with pathtrackr}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,3 +20,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+<br />  
+
+Overview
+--------
+The multiple-part objects in this example are partial wing skeletons comprised of humerus, radius and ulna. These partial wing skeletons are from 15 extant species of penguin and five fossil species of penguin, which together constitute a dataset of 60 wing bones (Table 1). 
+
+Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into R using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017).

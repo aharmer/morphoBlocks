@@ -1,6 +1,6 @@
-#' Format configurations into a data block
+#' @title Format configurations into a data block
 #'
-#' Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. \code{formatBlock} is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016).
+#' @description Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. \code{formatBlock} is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016).
 #'
 #' @param block two-dimensional matrix or three-dimensional array of configurations to be formatted into a data block.
 #' @param curves optional matrix passed to \code{gpagen} for correctly calculating position of curve semilandmarks (see \code{geomorph::gpagen} for more detail).

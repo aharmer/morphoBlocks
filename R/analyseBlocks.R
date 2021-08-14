@@ -1,6 +1,6 @@
-#' Analyse a list of data blocks containing shape information
+#' @title Analyse a list of data blocks containing shape information
 #'
-#' Performs either regularised consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks.
+#' @description Performs either regularised consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks.
 
 #' @param blockList list of ‘block’ objects produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions.
 #' @param option either \code{option = "rcpca"} (default) for regularised consensus principal component analysis in mode 2 applied to the entire block list, or \code{option = "pca"} for principal component analysis applied to the superblock item in the block list.

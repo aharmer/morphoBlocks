@@ -1,11 +1,11 @@
-#' Combine and scale blocks of shape configuration data
+#' @title Combine and scale blocks of shape configuration data
 #'
-#' Combines two or more blocks of shape configuration data into a block list. Scales all data blocks using the normalised centroid size method from Profico et al. (2019) (and further described by Collyer et al. 2020). Such scaling occurs by default but is optional and can be prevented. A superblock is produced by column-wise concatenation of the individual blocks.
-#' 
+#' @description Combines two or more blocks of shape configuration data into a block list. Scales all data blocks using the normalised centroid size method from Profico et al. (2019) (and further described by Collyer et al. 2020). Such scaling occurs by default but is optional and can be prevented. A superblock is produced by column-wise concatenation of the individual blocks.
+#'
 #' @param blocks list of 'block' objects produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions.
 #' @param cent.scale a logical value indicating if the blocks should be scaled using the normalised centroid size method adapted from \code{geomorph::combine.subsets}. Default value \code{TRUE}.
 #'
-#' @details The block data is scaled using the normalised centroid size method from Profico et al. (2019) and Collyer et al. (2020) if \code{cent.scale = TRUE}. Dimensions of the blocks are retained for downstream analyses. \code{combineBlocks} adapts the normalised centroid size method from the \code{combine.subsets} function in the \code{geomorph} package (Adams and Otárola-Castillo 2013).
+#' @details The block data is scaled using the normalised centroid size method from Profico et al. (2019) and Collyer et al. (2020) if \code{cent.scale = TRUE}. Dimensions of the blocks are retained for downstream analyses. \code{combineBlocks} adapts the normalised centroid size method from the \code{combine.subsets} function in the \code{geomorph} package (Adams and Ot?rola-Castillo 2013).
 #'
 #' @return a 'blockList' object, used for downstream analyses, that contains the data blocks and a superblock formed from the column-wise concatenation of all data blocks. The list contains the elements:
 #' \itemize{
@@ -19,9 +19,9 @@
 #' block1 = dodecBlock()
 #' block2 = dodecBlock()
 #' combineBlocks(blocks = c(block1, block2))
-#' 
+#'
 #' @references
-#' Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
+#' Adams DC, Ot?rola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
 #' Collyer ML, Davis MA, Adams DC. 2020. Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology 47: 193-205 https://doi.org/10.1007/s11692-020-09503-z
 #' Profico A, Piras P, Buzi C, Del Bove A, Melchionna M, Senczuk G,  Varano V, Veneziano A, Raia P, Manzi G. 2019. Seeing the wood through the trees. Combining shape information from different landmark configurations. Hystrix, the Italian Journal of Mammalogy, 30: 157-165 https://doi.org/10.4404/hystrix-00206-2019
 #'

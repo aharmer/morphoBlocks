@@ -1,3 +1,34 @@
+#' @title Plot component scores from an analysis of multiple data blocks
+#'
+#' @description Bivariate scatterplot (or plots) of the score values from an analysis of data blocks containing shape information
+#'
+#' @param result result produced by the analyseBlocks function.
+#' @param comp the components selected to be shown along the scatter plot axes. Default is component one and component two. The first selected component will be shown along the horizontal axis and the second selected component will be shown along the vertical axis. The selected components must be within the range of components calculated by \code{analyseBlocks}.
+#' @param pcol optional colour value (integer, hex code, colour name) or vector of colour values to be applied to the points in the scatterplot. If no value is specified then points will be coloured in a gradient from black to green according to their sequence in the data blocks. If a single integer is supplied (e.g. \code{pcol = 1} or \code{pcol = "red"} or \code{pcol = "#ffffff"}) then all points will have the same colour. If a vector of length \code{n} is supplied (e.g. \code{pcol = 1:10}) then each point will be coloured by a value corresponding to its position in the vector.
+#' @param plablels optional user-supplied vector of labels for labelling points in scores plot.
+#' @param consensus.only a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularised consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.
+#'
+#' @details \code{scoresPlot} helps to visualise the result from the \code{analyseBlocks} function and gives a different result depending on whether 1) \code{option = "rcpca"} or 2) \code{option = "pca"}) was used for \code{analyseBlocks}.
+#' 1) If \code{option = "pca"} was used for \code{analyseBlocks} then a scatterplot will be produced for the selected components from each individual block and for the consensus space. Axes will display the average variance explained by the components of the individual blocks and the consensus. Average variance explained by a selected component is presented as a proportion of the total variance. For detail about average variance explained see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017).
+#' 2) If \code{option = "pca"} was selected for \code{analyseBlocks} then a scatterplot will be produced for the selected components from the analysis of the superblock. Axes will display the variance explained by the components of the superblock. Variance explained by a selected component is presented as a proportion of the total variance explained by all components.
+#'
+#' @return a two-dimensional scatterplot
+#'
+#' @examples
+#' block1 = dodecBlock()
+#' block2 = dodecBlock()
+#' blocklist = combineBlocks(blocks = c(block1, block2))
+#' result1 = analyseBlocks(blocklist)
+#' result2 = analyseBlocks(blocklist, option = "pca", ncomp = 10)
+#' scoresPlot(result1)
+#' dev.off()
+#' scoresPlot(result2, comp = c(2,3), pcol = colorRampPalette(c(rgb(1, 0.7, 0,1), rgb(0, 0, 1, 1)), alpha = TRUE)(result2@n[1]))
+#'
+#' @references
+#' Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+#' Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+#'
+#' @export
 scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, consensus.only = F) {
   if (class(result) != "blockResult") {
     stop("Object is not the expected format. Use analyseBlock function to first analyse the data")
