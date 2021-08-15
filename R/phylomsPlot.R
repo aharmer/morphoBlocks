@@ -12,7 +12,7 @@
 #' @param fsize size of the \code{n.names} labels if they are included in the plot. Default is 0.8.
 #'
 #' @details \code{phylomsPlot} helps to visualise the result from the \code{analyseBlocks} function by presenting an evolutionary context for score values from a consensus space (for \code{option = "rcpca"} in \code{analyseBlocks}) or from a concatenated superblock (for \code{option = "pca"} in \code{analyseBlocks}).
-#' \code{phylomsPlot} is a wrapper for \code{phylomorphospace} from the \code{phytools} package (Revell, 2012), which is in turn based on the projection of a phylogenetic tree into a morphospace by Sidlauskas (2008). The function \code{phylomsPlot} uses the \code{distRoot} function from the \code{adephylo} package (Jombart et al. 2010). \code{phylomsPlot} does not specifically use functions from the \code{ape} package (Paradis et al. 2004), but this package may be called to read \code{phy} into R.
+#' \code{phylomsPlot} is a wrapper for \code{phylomorphospace} from the \code{phytools} package (Revell, 2012), which is in turn based on the projection of a phylogenetic tree into a morphospace by Sidlauskas (2008). The function \code{phylomsPlot} uses the \code{distRoot} function from the \code{adephylo} package (Jombart et al. 2010). \code{phylomsPlot} does not specifically use functions from the \code{ape} package (Paradis et al. 2004), but this package may be called to read \code{phy} into \R.
 #'
 #' @examples
 #' # Simulate a phylogenetic tree with 20 tips
@@ -32,10 +32,12 @@
 #' phylomsPlot(result, phy, n.names, comp = 1, xlab = "Tip to root distance")
 #'
 #' @references
-#' Jombart T, Balloux F, Dray S. 2010. adephylo: new tools for investigating the phylogenetic signal in biological traits. Bioinformatics 26: 1907–1909 https://doi.org/10.1093/bioinformatics/btq292
-#' Paradis E, Claude J, Strimmer K. 2004. APE: Analyses of phylogenetics and evolution in R language. Bioinformatics 20: 289–290 https://doi.org/10.1093/bioinformatics/btg412
-#' Revell LJ. 2012. phytools: An R package for phylogenetic comparative biology (and other things). Methods in Ecology and Evolution 3: 217–223 https://doi.org/10.1111/j.2041-210X.2011.00169.x
-#' Sidlauskas B. 2008. Continuous and arrested morphological diversification in sister clades of characiform fishes: a phylomorphospace approach. Evolution 62: 3135–3156 https://doi.org/10.1111/j.1558-5646.2008.00519.x
+#' \itemize{
+#'   \item Jombart T, Balloux F, Dray S. 2010. adephylo: new tools for investigating the phylogenetic signal in biological traits. Bioinformatics 26: 1907–1909 https://doi.org/10.1093/bioinformatics/btq292
+#'   \item Paradis E, Claude J, Strimmer K. 2004. APE: Analyses of phylogenetics and evolution in \R language. Bioinformatics 20: 289–290 https://doi.org/10.1093/bioinformatics/btg412
+#'   \item Revell LJ. 2012. phytools: An \R package for phylogenetic comparative biology (and other things). Methods in Ecology and Evolution 3: 217–223 https://doi.org/10.1111/j.2041-210X.2011.00169.x
+#'   \item Sidlauskas B. 2008. Continuous and arrested morphological diversification in sister clades of characiform fishes: a phylomorphospace approach. Evolution 62: 3135–3156 https://doi.org/10.1111/j.1558-5646.2008.00519.x
+#'   }
 #'
 #' @import phytools
 #' @import adephylo

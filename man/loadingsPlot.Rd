@@ -13,7 +13,7 @@ loadingsPlot(result, comp = 1, cex.2d = 2, cex.3d = 5)
 
 \item{cex.2d}{value for specifying point size when plotting loadings from analysis of two-dimensional shape configurations. Passed to cex term of \code{plot}. Default is 2.}
 
-\item{value}{for specifying point size when plotting loadings from analysis of three-dimensional shape configurations. Passed to cex term of \code{plot3d}. Default is 5.}
+\item{cex.3d}{value for specifying point size when plotting loadings from analysis of three-dimensional shape configurations. Passed to cex term of \code{plot3d}. Default is 5.}
 }
 \value{
 a two- or three-dimensional scatterplot
@@ -38,5 +38,7 @@ loadingsPlot(result2, comp = 2)
 
 }
 \references{
-Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+\itemize{
+  \item Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+  }
 }

@@ -22,9 +22,11 @@
 #' decMesh(path, scale = 0.1)
 #'
 #' @references
-#' Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
-#' Schlager S. 2017. Morpho and Rvcg-shape analysis in R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
-#' Wenzel J, Tarini M, Panozzo D, Sorkine-Hormung O. 2015. Instant field-alighed meshes. ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia 2015) 34: 189-181.
+#' \itemize{
+#'   \item Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+#'   \item Schlager S. 2017. Morpho and Rvcg-shape analysis in \R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
+#'   \item Wenzel J, Tarini M, Panozzo D, Sorkine-Hormung O. 2015. Instant field-alighed meshes. ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia 2015) 34: 189-181.
+#'   }
 #'
 #' @import Morpho
 #' @import Rvcg

@@ -16,7 +16,7 @@ analyseBlocks(blockList, option = "rcpca", ncomp = 3)
 \value{
 A blockResult object containing output from the regularised consensus principal component analysis or principal component analysis. The list contains the elements:
 \itemize{
-  \item \code{result} output from the regularised consensus principal component analysis in mode 2 produced by the \code{rgcca} function from the \code{RGCCA} package, or output from principal component analysis produced by the \code{prcomp} function in \code{base} R.
+  \item \code{result} output from the regularised consensus principal component analysis in mode 2 produced by the \code{rgcca} function from the \code{RGCCA} package, or output from principal component analysis produced by the \code{prcomp} function in \code{base} \R.
   \item \code{option} either "rcpca" or "pca".
   \item \code{block.list} a list containing the data blocks and a concatenated superblock. Inherited from the supplied blockList object and retained for downstream analyses.
   \item \code{scores} component score values (for individual blocks and the consensus if \code{option = "rpca"}; for the superblock if \code{option = "pca"}) (see \code{scoresPlot} for more detail).
@@ -30,7 +30,7 @@ A blockResult object containing output from the regularised consensus principal 
 Performs either regularised consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks.
 }
 \details{
-\code{analyseBlocks} is applied to an object of class "blockList" produced by the \code{combineBlocks} function and has two options: 1) \code{option = "rcpca"} and 2) \code{option = "pca"}. \code{option = "rcpca"} will perform regularised consensus principal component analysis using the \code{rgcca} function from the \code{RGCCA} package (Tenenhaus and Guillemot 2017), and is the default option for \code{analyseBlocks}. The \code{rgcca} function itself has many options that each perform a different type of analysis. Here the \code{analyseBlocks} function is specifically calling the regularised consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). \code{option = "pca"} will perform principal component analysis on the superblock item in the block list using the \code{prcomp} function from \code{base} R.
+\code{analyseBlocks} is applied to an object of class "blockList" produced by the \code{combineBlocks} function and has two options: 1) \code{option = "rcpca"} and 2) \code{option = "pca"}. \code{option = "rcpca"} will perform regularised consensus principal component analysis using the \code{rgcca} function from the \code{RGCCA} package (Tenenhaus and Guillemot 2017), and is the default option for \code{analyseBlocks}. The \code{rgcca} function itself has many options that each perform a different type of analysis. Here the \code{analyseBlocks} function is specifically calling the regularised consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). \code{option = "pca"} will perform principal component analysis on the superblock item in the block list using the \code{prcomp} function from \code{base} \R.
 }
 \examples{
 block1 = dodecBlock()
@@ -41,6 +41,8 @@ result2 = analyseBlocks(blocklist, option = "pca", ncomp=10)
 
 }
 \references{
-Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
-Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+\itemize{
+  \item Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+  \item Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+ }
 }

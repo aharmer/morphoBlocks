@@ -60,6 +60,8 @@ block2 = dodecBlock(n = 5, theta_z = seq(from = 0, to = 270, by = 60), vertex_sh
 
 }
 \references{
-Adams DC, Ot?rola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
-Schlager S. 2017. Morpho and Rvcg-shape analysis in R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
+\itemize{
+  \item Adams DC, Ot?rola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
+  \item Schlager S. 2017. Morpho and Rvcg-shape analysis in \R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
+  }
 }

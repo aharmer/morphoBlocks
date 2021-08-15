@@ -5,7 +5,7 @@
 #' @param result result produced by the analyseBlocks function.
 #' @param comp the components selected to be shown along the scatter plot axes. Default is component one and component two. The first selected component will be shown along the horizontal axis and the second selected component will be shown along the vertical axis. The selected components must be within the range of components calculated by \code{analyseBlocks}.
 #' @param pcol optional colour value (integer, hex code, colour name) or vector of colour values to be applied to the points in the scatterplot. If no value is specified then points will be coloured in a gradient from black to green according to their sequence in the data blocks. If a single integer is supplied (e.g. \code{pcol = 1} or \code{pcol = "red"} or \code{pcol = "#ffffff"}) then all points will have the same colour. If a vector of length \code{n} is supplied (e.g. \code{pcol = 1:10}) then each point will be coloured by a value corresponding to its position in the vector.
-#' @param plablels optional user-supplied vector of labels for labelling points in scores plot.
+#' @param plabels optional user-supplied vector of labels for labelling points in scores plot.
 #' @param consensus.only a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularised consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.
 #'
 #' @details \code{scoresPlot} helps to visualise the result from the \code{analyseBlocks} function and gives a different result depending on whether 1) \code{option = "rcpca"} or 2) \code{option = "pca"}) was used for \code{analyseBlocks}.
@@ -25,8 +25,10 @@
 #' scoresPlot(result2, comp = c(2,3), pcol = colorRampPalette(c(rgb(1, 0.7, 0,1), rgb(0, 0, 1, 1)), alpha = TRUE)(result2@n[1]))
 #'
 #' @references
-#' Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
-#' Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+#' \itemize{
+#'   \item Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+#'   \item Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+#'   }
 #'
 #' @export
 scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, consensus.only = F) {

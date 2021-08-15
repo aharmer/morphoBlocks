@@ -1,2 +1,9 @@
-#' @import
+#' S4 blockList class
+#'
+#' Used as input for multiblock analysis.
+#'
+#' @name blockList-class
+#' @rdname blockList-class
+#' @import methods
+#' @export
 blockList_out = setClass("blockList", slots = c(block.list = "list", p = "integer", k = "integer", n = "integer"))

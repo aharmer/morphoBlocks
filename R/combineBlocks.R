@@ -21,9 +21,11 @@
 #' combineBlocks(blocks = c(block1, block2))
 #'
 #' @references
-#' Adams DC, Ot?rola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
-#' Collyer ML, Davis MA, Adams DC. 2020. Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology 47: 193-205 https://doi.org/10.1007/s11692-020-09503-z
-#' Profico A, Piras P, Buzi C, Del Bove A, Melchionna M, Senczuk G,  Varano V, Veneziano A, Raia P, Manzi G. 2019. Seeing the wood through the trees. Combining shape information from different landmark configurations. Hystrix, the Italian Journal of Mammalogy, 30: 157-165 https://doi.org/10.4404/hystrix-00206-2019
+#' \itemize{
+#'   \item Adams DC, Ot?rola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
+#'   \item Collyer ML, Davis MA, Adams DC. 2020. Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology 47: 193-205 https://doi.org/10.1007/s11692-020-09503-z
+#'   \item Profico A, Piras P, Buzi C, Del Bove A, Melchionna M, Senczuk G,  Varano V, Veneziano A, Raia P, Manzi G. 2019. Seeing the wood through the trees. Combining shape information from different landmark configurations. Hystrix, the Italian Journal of Mammalogy, 30: 157-165 https://doi.org/10.4404/hystrix-00206-2019
+#'   }
 #'
 #' @export
 combineBlocks = function(blocks = c(...), cent.scale = TRUE) {

@@ -5,7 +5,7 @@
 #' @param result result produced by the analyseBlocks function.
 #' @param comp the component selected to be shown in the loadings plots. Default is component 1. The selected component must be within the range of components calculated by \code{analyseBlocks}.
 #' @param cex.2d value for specifying point size when plotting loadings from analysis of two-dimensional shape configurations. Passed to cex term of \code{plot}. Default is 2.
-#' @param value for specifying point size when plotting loadings from analysis of three-dimensional shape configurations. Passed to cex term of \code{plot3d}. Default is 5.
+#' @param cex.3d value for specifying point size when plotting loadings from analysis of three-dimensional shape configurations. Passed to cex term of \code{plot3d}. Default is 5.
 #'
 #' @details \code{loadingsPlot} helps to visualise the result from the \code{analyseBlocks} function by using the component loadings to colour the mean position of each point in the consensus space (for \code{option = "rcpca"} in \code{analyseBlocks}) or the concatenated superblock (for \code{option = "pca"} in \code{analyseBlocks}). Points are coloured along a gradient from orange to blue. Points that are more orange have relatively large loadings values (i.e. larger within-block covariation), and points that are more blue have relatively small loadings values (i.e. smaller within-block covariation).
 #' \code{loadingsPlot} will present a two-dimensional scatterplot if the list of data blocks that were analysed had \code{k = 2} dimensions. Likewise, \code{loadingsPlot} will present a three-dimensional scatterplot if the list of data blocks had \code{k = 3} dimensions.
@@ -24,7 +24,9 @@
 #' loadingsPlot(result2, comp = 2)
 #'
 #' @references
-#' Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+#' \itemize{
+#'   \item Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+#'   }
 #'
 #' @import geomorph
 #' @export

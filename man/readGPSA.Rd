@@ -25,7 +25,7 @@ a 'block' class object, used for downstream analyses. The list contains the elem
 Reads and organises pseudolandmarks from Generalised Procrustes Surface Analysis (GPSA; Pomidor et al. 2015) into a data block. \code{readGPSA} expects a directory containing a single .dat file containing homologised points for one block of pseudolandmark configurations.
 }
 \details{
-\code{readGPSA} reads a matrix of pseudolandmark configurations from a .dat file into the R environment and organises the configurations into an array. Several objects are calculated for downstream analyses including centroid sizes for each pseudolandmark configuration. Note that centroid sizes are not calculated for the original meshes processed using GPSA, but are instead calculated for the homologised pseudolandmark points from each of those meshes after processing with GPSA.
+\code{readGPSA} reads a matrix of pseudolandmark configurations from a .dat file into the \R environment and organises the configurations into an array. Several objects are calculated for downstream analyses including centroid sizes for each pseudolandmark configuration. Note that centroid sizes are not calculated for the original meshes processed using GPSA, but are instead calculated for the homologised pseudolandmark points from each of those meshes after processing with GPSA.
 \code{readGPSA} is a wrapper function for the \code{fread} function from the \code{data.table} library (Dowle and Srinivasan 2020), the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{arrayspecs} function from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
 }
 \examples{
@@ -36,4 +36,12 @@ block1@p
 block1@k
 block1@n
 
+}
+\references{
+\itemize{
+  \item Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+  \item Dowle M, Srinivasan A. 2020. data.table: Extension of `data.frame`. R package version 1.13.4. https://CRAN.R-project.org/package=data.table
+  \item Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+  \item Schlager S. 2017. Morpho and Rvcg–shape analysis in R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
+  }
 }

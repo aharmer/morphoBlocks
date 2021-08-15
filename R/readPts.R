@@ -6,9 +6,9 @@
 #' @param landmarkRM a vector of landmarks to be excluded from the data block.
 #' @param gpa a logical value indicating whether generalised Procrustes analyses should be performed. Default is \code{TRUE}.
 #'
-#' @details \code{readPts} reads landmark configurations from .pts files into the R environment, organises the configurations into a single array, and performs generalised Procrustes analysis on the array if required. Several objects are calculated for downstream analyses including centroid sizes for each landmark configuration.
+#' @details \code{readPts} reads landmark configurations from .pts files into the \R environment, organises the configurations into a single array, and performs generalised Procrustes analysis on the array if required. Several objects are calculated for downstream analyses including centroid sizes for each landmark configuration.
 #' \code{readPts} is a wrapper function for the \code{read.pts} and \code{cSize} functions from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
-#' Landmarks are identified by their sequence within the configuration, which is an important consideration when excluding landmarks from the data block. For example, \code{landmarkRM = c(1,3)} would remove the first and third landmarks from all configurations once they were read into the R environment, and thus the data block would not include landmark 1 and landmark 3. The \code{landmarkRM} term might be used for analyses that want to test the sensitivity of dataset covariation on one or more landmarks.
+#' Landmarks are identified by their sequence within the configuration, which is an important consideration when excluding landmarks from the data block. For example, \code{landmarkRM = c(1,3)} would remove the first and third landmarks from all configurations once they were read into the \R environment, and thus the data block would not include landmark 1 and landmark 3. The \code{landmarkRM} term might be used for analyses that want to test the sensitivity of dataset covariation on one or more landmarks.
 #'
 #' @return a 'block' class object, used for downstream analyses. The list contains the elements:
 #' \itemize{
@@ -40,17 +40,19 @@
 #' block2@n
 #'
 #' @references
-#' Adams DC, Otárola-Castillo E. 2013. geomorph: an R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
-#' Schlager S. 2017. Morpho and Rvcg–shape analysis in R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
-#' Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
+#' \itemize{
+#'   \item Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+#'   \item Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
+#'   \item Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
+#'   }
 #'
 #' @import geomorph
 #' @import Morpho
 #' @export
 readPts = function (dirpath, landmarkRM = c(), gpa = T) {
 
-  # require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
-  # require(Morpho, quietly = TRUE, warn.conflicts = FALSE)
+  require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
+  require(Morpho, quietly = TRUE, warn.conflicts = FALSE)
 
   file.list = list.files(dirpath, full.names = T, pattern = ".pts")
   if (length(file.list) < 1) {
