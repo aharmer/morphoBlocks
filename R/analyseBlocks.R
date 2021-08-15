@@ -73,7 +73,7 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
     block.loadings = result$astar
     setClass("rgcca")
 
-    blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "list", block.loadings = "list", p = "integer", k = "integer", n = "integer"))
+    # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "list", block.loadings = "list", p = "integer", k = "integer", n = "integer"))
 
   }
 

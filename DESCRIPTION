@@ -15,6 +15,7 @@ Imports:
   adephylo,
   data.table,
   geomorph,
+  methods,
   Morpho,
   phytools,
   RGCCA,

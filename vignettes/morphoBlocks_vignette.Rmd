@@ -8,7 +8,7 @@ output:
     toc: true
     number_sections: false
 vignette: >
-  %\VignetteIndexEntry{Getting started with pathtrackr}
+  %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

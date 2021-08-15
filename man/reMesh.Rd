@@ -16,7 +16,7 @@ Generates new versions of 3D meshes (.obj, .ply or .stl) in a selected directory
 }
 \details{
 \code{reMesh} can be used for 3D mesh preprocessing before computationally demanding analyses.
-\code{reMesh} is a wrapper for \code{vcgImport}, \code{vcgMeshres}, \code{vcgPlyWrite} and \code{vcgQEdecim} from the \codeRvcg package (Schlager, 2017).
+\code{reMesh} is a wrapper for \code{vcgImport}, \code{vcgMeshres}, \code{vcgPlyWrite} and \code{vcgQEdecim} from the \code{Rvcg} package (Schlager, 2017).
 }
 \references{
 Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368

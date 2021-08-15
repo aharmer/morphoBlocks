@@ -102,7 +102,7 @@ formatBlock = function (block, curves = NULL, surfaces = NULL, cs = NULL, k = 2,
 
   }
 
-  block_out = setClass("block", slots = c(gpa.3D = "array", gpa.2D = "matrix", raw = "array", centroid = "numeric", p = "numeric", k = "numeric", n = "numeric"))
+  # block_out = setClass("block", slots = c(gpa.3D = "array", gpa.2D = "matrix", raw = "array", centroid = "numeric", p = "numeric", k = "numeric", n = "numeric"))
   output = block_out(gpa.3D = gpa.3D, gpa.2D = gpa.2D, raw = block, centroid = centroid, p = dim(gpa.3D)[1], k = dim(gpa.3D)[2], n = dim(gpa.3D)[3])
 
   return (output)

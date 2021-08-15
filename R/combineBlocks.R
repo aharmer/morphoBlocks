@@ -95,7 +95,7 @@ combineBlocks = function(blocks = c(...), cent.scale = TRUE) {
       names(block.list) = c(paste(rep("block_"), LETTERS[1: J], sep = ""), "superblock")
 
   }
-  blockList_out = setClass("blockList", slots = c(block.list = "list", p = "integer", k = "integer", n = "integer"))
+  # blockList_out = setClass("blockList", slots = c(block.list = "list", p = "integer", k = "integer", n = "integer"))
   output = blockList_out(block.list = block.list, p = p, k = k, n = n)
 
   return(output)

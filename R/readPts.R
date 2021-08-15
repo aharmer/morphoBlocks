@@ -49,8 +49,8 @@
 #' @export
 readPts = function (dirpath, landmarkRM = c(), gpa = T) {
 
-  require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
-  require(Morpho, quietly = TRUE, warn.conflicts = FALSE)
+  # require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
+  # require(Morpho, quietly = TRUE, warn.conflicts = FALSE)
 
   file.list = list.files(dirpath, full.names = T, pattern = ".pts")
   if (length(file.list) < 1) {
@@ -107,7 +107,7 @@ readPts = function (dirpath, landmarkRM = c(), gpa = T) {
     centroid[i] = cSize(LM.all[, , i])
   }
 
-  block_out = setClass("block", slots = c(gpa.3D = "array", gpa.2D = "matrix", raw ="array",  centroid = "numeric", p = "numeric", k = "numeric", n = "numeric", curves = "array", surfaces = "integer"))
+  # block_out = setClass("block", slots = c(gpa.3D = "array", gpa.2D = "matrix", raw ="array",  centroid = "numeric", p = "numeric", k = "numeric", n = "numeric", curves = "array", surfaces = "integer"))
   output = block_out(gpa.3D = gpa.3D, gpa.2D = gpa.2D, raw = LM.all, centroid = centroid, p = dim(gpa.3D)[1], k = dim(gpa.3D)[2], n = dim(gpa.3D)[3], curves = curves.map, surfaces = LM.patch.ID)
 
   return (output)
