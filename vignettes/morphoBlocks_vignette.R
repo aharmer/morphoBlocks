@@ -1,6 +1,8 @@
-## ----setup, include=FALSE-----------------------------------------------------
+## ----setup, include = FALSE---------------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  tidy.opts = list(width.cutoff = 60),
+  tidy = TRUE
 )
 

@@ -54,6 +54,8 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
     # setClass("prcomp")
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "matrix", block.loadings = "matrix", p = "integer", k = "integer", n = "integer"))
+
+    output = prcompResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
   }
 
   if(option == "rcpca") {
@@ -77,9 +79,10 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "list", block.loadings = "list", p = "integer", k = "integer", n = "integer"))
 
+    output = rgccaResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
   }
 
-  output = blockResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
+  # output = blockResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
 
   return (output)
 }
