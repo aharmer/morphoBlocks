@@ -1,6 +1,6 @@
 #' S4 block class
 #'
-#' Used as input for multiblock analysis.
+#' Used as input for multi-block analysis.
 #'
 #' @name block-class
 #' @rdname block-class

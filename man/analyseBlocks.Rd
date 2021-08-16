@@ -37,7 +37,7 @@ block1 = dodecBlock()
 block2 = dodecBlock()
 blocklist = combineBlocks(blocks = c(block1, block2))
 result1 = analyseBlocks(blocklist)
-result2 = analyseBlocks(blocklist, option = "pca", ncomp=10)
+result2 = analyseBlocks(blocklist, option = "pca", ncomp = 10)
 
 }
 \references{

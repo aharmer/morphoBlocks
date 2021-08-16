@@ -19,9 +19,9 @@ scoresPlot(
 
 \item{pcol}{optional colour value (integer, hex code, colour name) or vector of colour values to be applied to the points in the scatterplot. If no value is specified then points will be coloured in a gradient from black to green according to their sequence in the data blocks. If a single integer is supplied (e.g. \code{pcol = 1} or \code{pcol = "red"} or \code{pcol = "#ffffff"}) then all points will have the same colour. If a vector of length \code{n} is supplied (e.g. \code{pcol = 1:10}) then each point will be coloured by a value corresponding to its position in the vector.}
 
-\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularised consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
+\item{plabels}{optional user-supplied vector of labels for labelling points in scores plot.}
 
-\item{plablels}{optional user-supplied vector of labels for labelling points in scores plot.}
+\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularised consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
 }
 \value{
 a two-dimensional scatterplot

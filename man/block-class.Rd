@@ -6,5 +6,5 @@
 \alias{block_out}
 \title{S4 block class}
 \description{
-Used as input for multiblock analysis.
+Used as input for multi-block analysis.
 }

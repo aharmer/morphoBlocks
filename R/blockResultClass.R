@@ -1,6 +1,6 @@
 #' S4 blockResult class
 #'
-#' Used as output for multiblock analysis.
+#' Used as output for multi-block analysis.
 #'
 #' @name blockResult-class
 #' @rdname blockResult-class

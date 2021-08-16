@@ -3,12 +3,11 @@ title: "Constructing a morphospace for a partial-wing skeleton"
 author: "Daniel B. Thomas"
 date: "`r Sys.Date()`"
 output: 
-  pdf_document: 
+  html_vignette: 
     toc: true
     fig_width: 7
     fig_height: 6
     fig_caption: true
-    highlight: null
 vignette: >
   %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
   %\VignetteEngine{knitr::rmarkdown}
@@ -24,19 +23,19 @@ knitr::opts_chunk$set(
 )
 ```
 
-<br />  
+&nbsp;
 
 Overview
 --------
 The multiple-part objects in this example are partial wing skeletons comprised of humerus, radius and ulna. These partial wing skeletons are from 15 extant species of penguin and five fossil species of penguin, which together constitute a dataset of 60 wing bones (Table 1). 
 
-Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into `R` using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
+|    Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into `R` using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
 
 ``` r
 data(penguinWings)
 ```
 
-<br />  
+&nbsp;
 
 The analysis in this example will use the mean values of the three replicate landmark configurations from each part. Creating these averaged values requires averaging the configurations stored in the @raw term of their respective block-class objects. 
 
@@ -47,7 +46,7 @@ rad_av = (rad1@raw + rad2@raw + rad3@raw)/3
 uln_av = (uln1@raw + uln2@raw + uln3@raw)/3
 ```
 
-<br />  
+&nbsp;  
 
 Each set of averaged landmarks can now be formatted into a data block with the `formatBlock` function. Here, we will use the @curves term from one of the replicates, and will set `gpa = TRUE` to perform generalised Procrustes transformation on the landmark configurations. Generalised Procrustes transformation is performed using `gpagen` from `geomorph` (Adams & Otárola-Castillo, 2013), which is called by `formatBlock`. 
 
@@ -58,7 +57,7 @@ block2 = formatBlock(rad_av, curves = rad1@curves, k = 3, gpa = TRUE)
 block3 = formatBlock(uln_av, curves = uln1@curves, k = 3, gpa = TRUE)
 ```
 
-<br />
+&nbsp;
 
 The three data blocks of Procrustes-transformed configurations (humerus, radius, ulna) are organised into a list of data blocks and scaled using the normalised weighted centroid size method from Collyer et al. (2020). 
 
@@ -67,7 +66,7 @@ The three data blocks of Procrustes-transformed configurations (humerus, radius,
 blocklist = combineBlocks(blocks = c(block1, block2, block3))
 ```
 
-<br />
+&nbsp;
 
 The scaled data blocks are analysed with regularised consensus principal component analysis (RCPCA) in mode 2 using the `rgcca` function from `RGCCA` (Tenenhaus & Guillemot, 2017), which is called by `analyseBlocks` when `option = 'rcpca'`.
 
@@ -76,7 +75,7 @@ The scaled data blocks are analysed with regularised consensus principal compone
 result = analyseBlocks(blocklist, ncomp = 10)
 ```
 
-<br />
+&nbsp;
 
 Use `scoresPlot` to show the consensus space from the analysis, which here represents a morphospace for the partial-wing skeleton.
 

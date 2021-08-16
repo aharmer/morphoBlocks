@@ -51,7 +51,7 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
     result = prcomp(blockList[[length(blockList)]])
     scores = result$x
     block.loadings = result$rotation
-    setClass("prcomp")
+    # setClass("prcomp")
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "matrix", block.loadings = "matrix", p = "integer", k = "integer", n = "integer"))
   }
@@ -73,7 +73,7 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
     result = rgcca(blockList, C = C, tau = tau, ncomp = rep(ncomp, J + 1), scheme = function (x) x ^ 2, scale = T)
     scores = result$Y
     block.loadings = result$astar
-    setClass("rgcca")
+    # setClass("rgcca")
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "list", block.loadings = "list", p = "integer", k = "integer", n = "integer"))
 
