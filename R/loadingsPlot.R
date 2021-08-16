@@ -34,7 +34,7 @@ loadingsPlot = function(result, comp = 1, cex.2d = 2, cex.3d = 5) {
 
   require(geomorph, quietly = TRUE, warn.conflicts = FALSE)
 
-  if(class(result) != "rggcaResult" | class(result != "prcompResult")) {
+  if(class(result) != "rgccaResult" & class(result) != "prcompResult") {
     stop("Object is not the expected format. Use analyseBlock function to first analyse the data")
   }
 

@@ -32,7 +32,7 @@
 #'
 #' @export
 scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, consensus.only = F) {
-  if (class(result) != "blockResult") {
+  if (class(result) != "rgccaResult" & class(result) != "prcompResult") {
     stop("Object is not the expected format. Use analyseBlock function to first analyse the data")
   }
 

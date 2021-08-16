@@ -44,7 +44,7 @@
 #' @export
 phylomsPlot = function(result, phy, n.names, comp = 1, pcol = NULL, xlab = "Time (Ma)", label="off", fsize=0.8) {
 
-  if(class(result) != "blockResult") {
+  if(class(result) != "rgccaResult" & class(result) != "prcompResult") {
     stop("Object is not the expected format. Use analyseBlock function to first analyse the data")
   }
 
