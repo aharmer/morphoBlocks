@@ -65,15 +65,15 @@ scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, cons
       AVE = result$result$AVE
 
       for (i in 1: (J - 1)) {
-        plot(scores[[i]][, compx], scores[[i]][, compy], xlab = paste("Component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " average variance explained)", sep = ""),
-          ylab = paste("Component ", compy, " (", round(AVE[[1]][[i]][compy], 3), "  average variance explained)", sep = ""),
+        plot(scores[[i]][, compx], scores[[i]][, compy], xlab = paste("Component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " ave)", sep = ""),
+          ylab = paste("Component ", compy, " (", round(AVE[[1]][[i]][compy], 3), "  ave)", sep = ""),
           main = paste("Block", LETTERS[i]), col = "black", pch = 21, bg = pcol, cex = 2)
         if (length(plabels) > 0) {
           text(scores[[i]][, compx], scores[[i]][, compy], labels = plabels, pos = 2)
         }
       }
-      plot(scores[[J]][, compx], scores[[J]][, compy], xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " average variance explained)", sep = ""),
-        ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  average variance explained)", sep = ""),
+      plot(scores[[J]][, compx], scores[[J]][, compy], xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " ave)", sep = ""),
+        ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  ave)", sep = ""),
         main = "Consensus", col = "black", pch = 21, bg = pcol, cex = 2)
       if (length(plabels) > 0) {
         text(scores[[J]][, compx], scores[[J]][, compy], labels = plabels, pos = 2)
@@ -84,8 +84,8 @@ scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, cons
       J = length(result$result$Y)
       AVE = result$result$AVE
 
-      plot(scores[[J]][, compx], scores[[J]][, compy], xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " average variance explained)", sep = ""),
-        ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  average variance explained)", sep = ""),
+      plot(scores[[J]][, compx], scores[[J]][, compy], xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " ave)", sep = ""),
+        ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  ave)", sep = ""),
         main = "Consensus", col = "black", pch = 21, bg = pcol, cex = 2)
       if (length(plabels) > 0) {
         text(scores[[J]][, compx], scores[[J]][, compy], labels = plabels, pos = 2)
