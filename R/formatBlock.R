@@ -53,7 +53,7 @@ formatBlock = function (block, curves = NULL, surfaces = NULL, cs = NULL, k = 2,
       p = dim(block)[1]
       k = dim(block)[2]
       n = dim(block)[3]
-      proc.all = gpagen(block, curves = curves, surfaces = surfaces, ProcD = F)
+      proc.all = gpagen(block, curves = curves, surfaces = surfaces, ProcD = FALSE, print.progress = FALSE)
       gpa.2D = two.d.array(proc.all$coords)
       gpa.3D = arrayspecs(gpa.2D, p, k)
 
@@ -69,7 +69,7 @@ formatBlock = function (block, curves = NULL, surfaces = NULL, cs = NULL, k = 2,
       n = dim(block)[1]
 
       block = arrayspecs(block, p, k)
-      proc.all = gpagen(block, curves = curves, surfaces = surfaces, ProcD = F)
+      proc.all = gpagen(block, curves = curves, surfaces = surfaces, ProcD = FALSE, print.progress = FALSE)
       gpa.2D = two.d.array(proc.all$coords)
       gpa.3D = arrayspecs(gpa.2D, p, k)
 

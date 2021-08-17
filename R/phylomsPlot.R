@@ -44,21 +44,21 @@
 #' @export
 phylomsPlot = function(result, phy, n.names, comp = 1, pcol = NULL, xlab = "Time (Ma)", label="off", fsize=0.8) {
 
-  if(class(result) != "rgccaResult" & class(result) != "prcompResult") {
+  if(class(result[[1]]) != "rgcca" & class(result[[1]]) != "prcomp") {
     stop("Object is not the expected format. Use analyseBlock function to first analyse the data")
   }
 
   require(phytools, quietly = TRUE, warn.conflicts = FALSE)
   require(adephylo, quietly = TRUE, warn.conflicts = FALSE)
 
-  n = result@n[1]
-  scores = result@scores
+  n = result$n[1]
+  scores = result$scores
 
-  if(result@option == "rcpca") {
+  if(result$option == "rcpca") {
    comp.scores = scores[[length(scores)]][,comp]
    }
 
-  if(result@option == "pca") {
+  if(result$option == "pca") {
     comp.scores = scores[,comp]
     }
 
