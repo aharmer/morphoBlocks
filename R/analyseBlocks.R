@@ -55,7 +55,7 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "matrix", block.loadings = "matrix", p = "integer", k = "integer", n = "integer"))
 
-    output = prcompResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
+    output = list(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
   }
 
   if(option == "rcpca") {
@@ -72,14 +72,14 @@ analyseBlocks = function(blockList, option = "rcpca", ncomp = 3) {
     tau = rep(1, length(blockList))
 
     # Perform RCPCA mode 2
-    result = rgcca(blockList, C = C, tau = tau, ncomp = rep(ncomp, J + 1), scheme = function (x) x ^ 2, scale = T)
+    result = rgcca(blockList, C = C, tau = tau, ncomp = rep(ncomp, J + 1), scheme = function (x) x ^ 2, scale = TRUE, verbose = FALSE)
     scores = result$Y
     block.loadings = result$astar
     # setClass("rgcca")
 
     # blockResult_out = setClass("blockResult", slots = c(result = class(result), option = "character", block.list = "list", scores = "list", block.loadings = "list", p = "integer", k = "integer", n = "integer"))
 
-    output = rgccaResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
+    output = list(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
   }
 
   # output = blockResult_out(result = result, option = option, block.list = blockList, scores = scores, block.loadings = block.loadings, p = p, k = k, n = n)
