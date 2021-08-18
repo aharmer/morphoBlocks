@@ -8,6 +8,7 @@ Author: as.person(c(
   ))
 Maintainer: Daniel Thomas <d.b.thomas@massey.ac.nz>
 Description: The 'morphoBlocks' package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
+Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -19,7 +20,8 @@ Imports:
   Morpho,
   phytools,
   RGCCA,
-  Rvcg
+  Rvcg,
+  stats
 RoxygenNote: 7.1.1
 Suggests: knitr,
     rmarkdown
