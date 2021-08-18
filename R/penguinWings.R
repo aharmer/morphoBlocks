@@ -6,7 +6,7 @@
 #' @keywords datasets
 #' @name penguinWings
 #' @usage data(penguinWings)
-#' @format A set of 'block' class objects.
+#' @rdname penguinWings
 "hum1"
 #' @rdname penguinWings
 "hum2"
