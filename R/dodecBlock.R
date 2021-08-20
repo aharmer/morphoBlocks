@@ -226,7 +226,7 @@ dodecBlock = function(n = 10, dist_x = NULL, dist_y = NULL, dist_z = NULL, theta
   }
 
   # Perform generalised Procrustes analysis
-  proc.all = gpagen(r.step4, ProcD = F)
+  proc.all = gpagen(r.step4, ProcD = FALSE, print.progress = FALSE)
   gpa.2D = two.d.array(proc.all$coords)
   gpa.3D = arrayspecs(gpa.2D, p, k)
 

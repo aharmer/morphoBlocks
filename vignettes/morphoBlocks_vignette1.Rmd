@@ -28,9 +28,9 @@ library(kableExtra)
 
 Overview
 --------
-The multiple-part objects in this example are partial wing skeletons comprised of humerus, radius and ulna. These partial wing skeletons are from 15 extant species of penguin and five fossil species of penguin, which together constitute a dataset of 60 wing bones (Table 1). 
+The multi-part objects in this example are partial wing skeletons comprised of humerus, radius and ulna. These partial wing skeletons are from 15 extant species of penguin and five fossil species of penguin, which together constitute a dataset of 60 wing bones (Table 1). 
 
-|    Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into `R` using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
+|    Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into *R* using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
 
 ``` {r warnings = FALSE, message = FALSE}
 library(morphoBlocks)
@@ -39,10 +39,11 @@ data(penguinWings)
 
 &nbsp;
 
-The analysis in this example will use the mean values of the three replicate landmark configurations from each part. Creating these averaged values requires averaging the configurations stored in the @raw term of their respective block-class objects. 
+The analysis in this example will use the mean values of the three replicate landmark configurations from each part. Creating these averaged values requires averaging the configurations stored in the *@raw* term of their respective block-class objects. 
 
 ``` {r}
 # Extract and average the landmark configurations
+
 hum_av = (hum1@raw + hum2@raw + hum3@raw)/3
 rad_av = (rad1@raw + rad2@raw + rad3@raw)/3
 uln_av = (uln1@raw + uln2@raw + uln3@raw)/3
@@ -52,10 +53,11 @@ uln_av = (uln1@raw + uln2@raw + uln3@raw)/3
 
 Prepare data blocks for analysis
 --------
-Each set of averaged landmarks can now be formatted into a data block with the `formatBlock` function. Here, we will use the @curves term from one of the replicates, and will set `gpa = TRUE` to perform generalised Procrustes transformation on the landmark configurations. Generalised Procrustes transformation is performed using `gpagen` from `geomorph` (Adams & Otárola-Castillo, 2013), which is called by `formatBlock`. 
+Each set of averaged landmarks can now be formatted into a data block with the `formatBlock` function. Here, we will use the *@curves* term from one of the replicates, and will set `gpa = TRUE` to perform generalised Procrustes transformation on the landmark configurations. Generalised Procrustes transformation is performed using `gpagen` from `geomorph` (Adams & Otárola-Castillo, 2013), which is called by `formatBlock`. 
 
 ``` {r}
 # Format the averaged landmark configurations into data blocks
+
 block1 = formatBlock(hum_av, curves = hum1@curves, k = 3, gpa = TRUE)
 block2 = formatBlock(rad_av, curves = rad1@curves, k = 3, gpa = TRUE)
 block3 = formatBlock(uln_av, curves = uln1@curves, k = 3, gpa = TRUE)
@@ -67,6 +69,7 @@ The three data blocks of Procrustes-transformed configurations (humerus, radius,
 
 ``` {r}
 # Scale and combine data blocks into a single list of blocks
+
 blocklist = combineBlocks(blocks = c(block1, block2, block3))
 ```
 
@@ -78,6 +81,7 @@ The scaled data blocks are analysed with regularised consensus principal compone
 
 ``` {r}
 # Analyse the list of data blocks using RCPCA
+
 result = analyseBlocks(blocklist, ncomp = 10)
 ```
 
@@ -89,9 +93,12 @@ Use `scoresPlot` to show the consensus space from the analysis, which here repre
 
 ``` {r fig.align = 'center'}
 # Setup colour vector to show different ages of fossil penguins. Paleocene (brown), stem-lineage penguins from the Oligocene (light brown), and extant penguins (white).
+
 pcol = c("#ffffff", "#ffffff", "#ffffff", "#ffffff", "#e6b481", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#feebd3", "#feebd3", "#ffffff", "#e6b481", "#feebd3", "#ffffff")
 
-# Plot consensus space showing global component one (GC1) and global component one (GC2) 
+
+# Plot consensus space showing global component one (GC1) and global component one (GC2)
+
 scoresPlot(result, pcol = pcol)
 ```
 
@@ -101,11 +108,12 @@ Use `loadingsPlot` to show the loadings for global component one of the analysis
 
 ``` {r eval = FALSE}
 # Plot loadings for global component one (GC1)
+
 loadingsPlot(result, cex.3d = 15)
 ```
 
 <center>
-![](loadingsPlotExample.png)
+![](loadingsPlotExample01.png)
 </center>
 
 
@@ -117,9 +125,11 @@ Data sources
 ``` {r echo = FALSE}
 dat = read.csv(system.file("extdata", "penguin_bone_metadata.csv", package = "morphoBlocks"))
 
-knitr::kable(dat, caption = "Table 1. 3D digital replicas produced from bones of modern and fossil penguins.") %>%
+knitr::kable(dat, caption = "Table 1. 3D digital replicas produced from bones of modern and fossil penguins.", align = "c") %>%
+  kable_classic(full_width = FALSE) %>% 
   column_spec(2:3, italic = TRUE) %>% 
-  footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, New Zealand; UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.", fixed_small_size = TRUE)
+  row_spec(0, bold = TRUE) %>% 
+  footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, New Zealand; UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
 ```
 
 &nbsp;

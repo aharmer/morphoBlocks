@@ -55,7 +55,7 @@ loadingsPlot = function(result, comp = 1, cex.2d = 2, cex.3d = 5) {
       pos.st = cumsum(c(1, nvert))
       pos.en = cumsum(nvert)
 
-      for(i in 1: J) {
+      for(i in 1:J) {
         A = arrayspecs(result$block.list[[i]], p = result$p[i], k = result$k[1])
         ref = mshape(A)
 

@@ -14,7 +14,7 @@
 \alias{uln3}
 \title{Penguin partial wing skeleton landmarks dataset}
 \format{
-A set of 'block' class objects.
+An object of class \code{block} of length 1.
 
 An object of class \code{block} of length 1.
 

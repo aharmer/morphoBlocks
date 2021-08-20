@@ -99,8 +99,8 @@ scoresPlot = function (result, comp = c(1, 2), pcol = NULL, plabels = NULL, cons
 
     plot(scores[, compx], scores[, compy], ann = FALSE, col = "black", pch = 21, bg = pcol, cex = 2)
     title(main = "Superblock")
-    title(xlab = paste("Principal component ", compx, " (", PCx.exp, " variance explained)", sep = ""))
-    title(ylab = paste("Principal component ", compy, " (", PCy.exp, " variance explained)", sep = ""))
+    title(xlab = paste("PC ", compx, " (", PCx.exp, " ve)", sep = ""))
+    title(ylab = paste("PC ", compy, " (", PCy.exp, " ve)", sep = ""))
     if (length(plabels) > 0) {
       text(scores[, compx], scores[, compy], labels = plabels, pos = 2)
     }
