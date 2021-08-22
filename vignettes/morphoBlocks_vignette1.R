@@ -6,6 +6,7 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 library(kableExtra)
+library(here)
 
 ## ----warnings = FALSE, message = FALSE----------------------------------------
 library(morphoBlocks)
@@ -49,6 +50,9 @@ scoresPlot(result, pcol = pcol)
 #  # Plot loadings for global component one (GC1)
 #  
 #  loadingsPlot(result, cex.3d = 15)
+
+## ----echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%"----
+knitr::include_graphics(here::here("man/figures", "loadingsPlotExample01.png"))
 
 ## ----echo = FALSE-------------------------------------------------------------
 dat <- read.csv(system.file("extdata", "penguin_bone_metadata.csv", package = "morphoBlocks"))

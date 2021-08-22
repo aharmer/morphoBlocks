@@ -40,18 +40,6 @@ block.list <- combineBlocks(blocks = c(
 ))
 
 ## ----echo = FALSE-------------------------------------------------------------
-# Generate correlation data for Table 2
-table_2 <- matrix(ncol = 10, nrow = 10)
-colnames(table_2) <- paste("Samp", seq(1:10))
-rownames(table_2) <- paste("Samp", seq(1:10))
-for (i in 1:10) {
-  sample_a <- as.vector(block.list@block.list[[11]][i, ])
-  for (j in 1:10) {
-    sample_b <- as.vector(block.list@block.list[[11]][j, ])
-    table_2[i, j] <- cor(sample_a, sample_b)
-  }
-}
-
 table_2 <- read.csv(system.file("extdata", "cor_matrix.csv", package = "morphoBlocks"))
 names(table_2)[1] <- ""
 
@@ -86,10 +74,10 @@ result.pca <- analyseBlocks(block.list, option = "pca")
 #  loadingsPlot(result.pca, comp = 2, cex.3d = 10)
 
 ## ----echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%", fig.cap = "Figure 1. Component one loadings from a principal component analysis of simulated shape data. Beginning top left and reading right and down, each group of shows mean position of landmarks in each data block. Orange represents points that have larger loadings and blue represents points that have smaller loadings."----
-knitr::include_graphics(here::here("vignettes", "loadingsPlotExample02.png"))
+knitr::include_graphics(here::here("man/figures", "loadingsPlotExample02.png"))
 
 ## ----echo = FALSE, loadingsPlot02, fig.align = "center", out.width = "90%", fig.cap = "Figure 2. Component two loadings from a principal component analysis of simulated shape data. See Figure 1 for key."----
-knitr::include_graphics(here::here("vignettes", "loadingsPlotExample03.png"))
+knitr::include_graphics(here::here("man/figures", "loadingsPlotExample03.png"))
 
 ## ----fig.align = "center", out.width = "90%", fig.height = 4, fig.cap = "Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and PC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."----
 # Figure 3
@@ -113,10 +101,10 @@ result.rcpca$result$AVE[[1]][[11]]
 #  loadingsPlot(result.rcpca, comp = 2, cex.3d = 10)
 
 ## ----echo = FALSE, loadingsPlot03, fig.align = "center", out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."----
-knitr::include_graphics(here::here("vignettes", "loadingsPlotExample04.png"))
+knitr::include_graphics(here::here("man/figures", "loadingsPlotExample04.png"))
 
 ## ----echo = FALSE, loadingsPlot04, fig.align = "center", out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."----
-knitr::include_graphics(here::here("vignettes", "loadingsPlotExample05.png"))
+knitr::include_graphics(here::here("man/figures", "loadingsPlotExample05.png"))
 
 ## ----fig.align = "center", out.width = "90%", fig.height = 4, fig.cap = "Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 and GC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."----
 # Figure 6

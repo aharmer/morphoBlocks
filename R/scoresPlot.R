@@ -74,7 +74,7 @@ scoresPlot <- function(result, comp = c(1, 2), pcol = NULL, plabels = NULL, cons
         }
       }
       plot(scores[[J]][, compx], scores[[J]][, compy],
-        xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " ave)", sep = ""),
+        xlab = paste("Global component ", compx, " (", round(AVE[[1]][[J]][compx], 3), " ave)", sep = ""),
         ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  ave)", sep = ""),
         main = "Consensus", col = "black", pch = 21, bg = pcol, cex = 2
       )
@@ -88,7 +88,7 @@ scoresPlot <- function(result, comp = c(1, 2), pcol = NULL, plabels = NULL, cons
       AVE <- result$result$AVE
 
       plot(scores[[J]][, compx], scores[[J]][, compy],
-        xlab = paste("Global component ", compx, " (", round(AVE[[1]][[i]][compx], 3), " ave)", sep = ""),
+        xlab = paste("Global component ", compx, " (", round(AVE[[1]][[J]][compx], 3), " ave)", sep = ""),
         ylab = paste("Global component ", compy, " (", round(AVE[[1]][[J]][compy], 3), "  ave)", sep = ""),
         main = "Consensus", col = "black", pch = 21, bg = pcol, cex = 2
       )
