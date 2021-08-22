@@ -19,8 +19,7 @@ Generates new versions of 3D meshes (.obj, .ply or .stl) in a selected directory
 \code{reMesh} is a wrapper for \code{vcgImport}, \code{vcgMeshres}, \code{vcgPlyWrite} and \code{vcgQEdecim} from the \code{Rvcg} package (Schlager, 2017).
 }
 \references{
-\itemize{
-  \item Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
-  \item Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
-  }
+Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+
+Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
 }

@@ -24,7 +24,7 @@ phylomsPlot(
 
 \item{comp}{the component selected to be shown in the phylomorphospace plot. Default is component one. The selected component must be within the range of components calculated by \code{analyseBlocks}.}
 
-\item{pcol}{optional colour value (integer, hex code, colour name) or vector of colour values to be applied to the points in the phylomorphospace plot. If no value is specified then points will be coloured in a gradient from black to green according to their sequence in the data blocks. If a single integer is supplied (e.g. \code{pcol = 1} or \code{pcol = "red"} or \code{pcol = "#ffffff"} then all points will have the same colour. If a vector of length \code{n} is supplied (e.g. \code{pcol = 1:10}) then each point will be coloured by a value corresponding to its position in the vector.}
+\item{pcol}{optional colour value (integer, hex code, colour name) or vector of colour values to be applied to the points in the phylomorphospace plot. If no value is specified then points will be coloured in a gradient from black to green according to their sequence in the data blocks. If a single integer is supplied (e.g. \code{pcol = 1} or \code{pcol = "red"} or \code{pcol = "#ffffff"} then all points will have the same colour. If a vector of length \emph{n} is supplied (e.g. \code{pcol = 1:10}) then each point will be coloured by a value corresponding to its position in the vector.}
 
 \item{xlab}{character string displayed along the horizontal axis of the phlyomorphospace plot. Default is "Time (Ma)".}
 
@@ -42,26 +42,27 @@ A plot to visualise the evolutionary relationships between specimens that are re
 \examples{
 # Simulate a phylogenetic tree with 20 tips
 library(phytools)
-phy = pbtree(b = 0.1, n = 20)
+phy <- pbtree(b = 0.1, n = 20)
 
 # Simulate, combine and analyse two data blocks with 20 samples each
-block1 = dodecBlock(n = 20)
-block2 = dodecBlock(n = 20)
-blocklist = combineBlocks(blocks = c(block1, block2))
-result = analyseBlocks(blocklist)
+block1 <- dodecBlock(n = 20)
+block2 <- dodecBlock(n = 20)
+blocklist <- combineBlocks(blocks = c(block1, block2))
+result <- analyseBlocks(blocklist)
 
 # Simulate a vector of names (here just use the tip labels)
-n.names = phy$tip.label
+n.names <- phy$tip.label
 
 # Generate phylomorphospace plot
 phylomsPlot(result, phy, n.names, comp = 1, xlab = "Tip to root distance")
 
 }
 \references{
-\itemize{
-  \item Jombart T, Balloux F, Dray S. 2010. adephylo: new tools for investigating the phylogenetic signal in biological traits. Bioinformatics 26: 1907–1909 https://doi.org/10.1093/bioinformatics/btq292
-  \item Paradis E, Claude J, Strimmer K. 2004. APE: Analyses of phylogenetics and evolution in \R language. Bioinformatics 20: 289–290 https://doi.org/10.1093/bioinformatics/btg412
-  \item Revell LJ. 2012. phytools: An \R package for phylogenetic comparative biology (and other things). Methods in Ecology and Evolution 3: 217–223 https://doi.org/10.1111/j.2041-210X.2011.00169.x
-  \item Sidlauskas B. 2008. Continuous and arrested morphological diversification in sister clades of characiform fishes: a phylomorphospace approach. Evolution 62: 3135–3156 https://doi.org/10.1111/j.1558-5646.2008.00519.x
-  }
+Jombart T, Balloux F, Dray S. 2010. adephylo: new tools for investigating the phylogenetic signal in biological traits. Bioinformatics 26: 1907–1909 https://doi.org/10.1093/bioinformatics/btq292
+
+Paradis E, Claude J, Strimmer K. 2004. APE: Analyses of phylogenetics and evolution in \R language. Bioinformatics 20: 289–290 https://doi.org/10.1093/bioinformatics/btg412
+
+Revell LJ. 2012. phytools: An \R package for phylogenetic comparative biology (and other things). Methods in Ecology and Evolution 3: 217–223 https://doi.org/10.1111/j.2041-210X.2011.00169.x
+
+Sidlauskas B. 2008. Continuous and arrested morphological diversification in sister clades of characiform fishes: a phylomorphospace approach. Evolution 62: 3135–3156 https://doi.org/10.1111/j.1558-5646.2008.00519.x
 }

@@ -12,6 +12,8 @@ vignette: >
   %\VignetteIndexEntry{Comparison between PCA and RCPCA using simulated data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{here}
+  %\VignetteDepends{kableExtra}
 ---
 
 ```{r setup, include = FALSE}
@@ -22,6 +24,7 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 library(kableExtra)
+library(here)
 ```
 
 &nbsp;
@@ -37,21 +40,21 @@ Model dataset
 
 A dataset of ten multiple-part samples is constructed using `dodecBlock`.
 
-``` {r}
+``` {r warnings = FALSE, message = FALSE}
 library(morphoBlocks)
 
 # Generate data blocks for the n = 10 samples in this example
 set.seed(1)
-block1 = dodecBlock(n = 10, vertex_shift = c(10,6,1,1,1,1,1,1,1,1))
-block2 = dodecBlock(n = 10, vertex_shift = c(1,1.25,1,1,1,1,1.25,1.25,1.25,1.25))
-block3 = dodecBlock(n = 10, vertex_shift = c(1.25,1,1.25,1.25,1.25,1.25,1,1,1,1))
-block4 = dodecBlock(n = 10, vertex_shift = c(1,1,1,1,1,1,1,1,1,1))
-block5 = dodecBlock(n = 10, vertex_shift = c(25,25,25,25,25,25,25,25,25,25))
-block6 = dodecBlock(n = 10, vertex_shift = c(25,25,25,25,25,25,25,25,25,25))
-block7 = dodecBlock(n = 10, vertex_shift = c(1,1,1,1,1,1,1,1,1,1))
-block8 = dodecBlock(n = 10,	vertex_shift = c(-1.25,1,-1.25,-1.25,-1.25,-1.25,1,1,1,1))
-block9 = dodecBlock(n = 10,	vertex_shift = c(1,-1.25,1,1,1,1,-1.25,-1.25,-1.25,-1.25))
-block10 = dodecBlock(n = 10, vertex_shift = c(-8,-4,1,1,1,1,1,1,1,1))
+block1 <- dodecBlock(n = 10, vertex_shift = c(10, 6, 1, 1, 1, 1, 1, 1, 1, 1))
+block2 <- dodecBlock(n = 10, vertex_shift = c(1, 1.25, 1, 1, 1, 1, 1.25, 1.25, 1.25, 1.25))
+block3 <- dodecBlock(n = 10, vertex_shift = c(1.25, 1, 1.25, 1.25, 1.25, 1.25, 1, 1, 1, 1))
+block4 <- dodecBlock(n = 10, vertex_shift = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1))
+block5 <- dodecBlock(n = 10, vertex_shift = c(25, 25, 25, 25, 25, 25, 25, 25, 25, 25))
+block6 <- dodecBlock(n = 10, vertex_shift = c(25, 25, 25, 25, 25, 25, 25, 25, 25, 25))
+block7 <- dodecBlock(n = 10, vertex_shift = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1))
+block8 <- dodecBlock(n = 10, vertex_shift = c(-1.25, 1, -1.25, -1.25, -1.25, -1.25, 1, 1, 1, 1))
+block9 <- dodecBlock(n = 10, vertex_shift = c(1, -1.25, 1, 1, 1, 1, -1.25, -1.25, -1.25, -1.25))
+block10 <- dodecBlock(n = 10, vertex_shift = c(-8, -4, 1, 1, 1, 1, 1, 1, 1, 1))
 ```
 
 
@@ -63,13 +66,12 @@ Each sample in the dataset is comprised of ten dodecahedra. Here, we treat the C
 &nbsp;
 
 ``` {r echo = FALSE}
-table_1 = read.csv(system.file("extdata", "z_vertex_shift.csv", package = "morphoBlocks"), colClasses = "numeric")
-table_1$Sample = as.factor(table_1$Sample)
+table_1 <- read.csv(system.file("extdata", "z_vertex_shift.csv", package = "morphoBlocks"), colClasses = "numeric")
+table_1$Sample <- as.factor(table_1$Sample)
 
-knitr::kable(table_1, caption = "Table 1. Values added to the `z` coordinate of the first vertex in the corresponding dodecahedron for each subset within each sample of the model dataset.", col.names = gsub("[.]", " ", names(table_1)), align = "c", format.args = list(nsmall = 2)) %>% 
-  kable_classic(full_width = FALSE) %>% 
-  row_spec(0, bold = TRUE)
- 
+knitr::kable(table_1, caption = "Table 1. Values added to the *z* coordinate of the first vertex in the corresponding dodecahedron for each subset within each sample of the model dataset.", col.names = gsub("[.]", " ", names(table_1)), align = "c", format.args = list(nsmall = 2)) %>%
+  kableExtra::kable_classic(full_width = FALSE) %>%
+  kableExtra::row_spec(0, bold = TRUE)
 ```
 
 &nbsp;
@@ -79,8 +81,10 @@ Data blocks are scaled (normalised centroid size method; Collyer et al., 2020) a
 
 ``` {r}
 # Combine data blocks into a single block list
-block.list = combineBlocks(blocks = c(block1, block2, block3, block4, block5, block6, 
-                                      block7, block8, block9, block10))
+block.list <- combineBlocks(blocks = c(
+  block1, block2, block3, block4, block5, block6,
+  block7, block8, block9, block10
+))
 ```
 
 &nbsp;
@@ -92,34 +96,34 @@ Here, we are using the *z* coordinate adjustment values to add three components 
 
 ``` {r echo = FALSE}
 # Generate correlation data for Table 2
-table_2 = matrix(ncol = 10, nrow = 10)
-colnames(table_2) = paste("Samp", seq(1:10))
-rownames(table_2) = paste("Samp", seq(1:10))
-for(i in 1:10) {
-   sample_a = as.vector(block.list@block.list[[11]][i,])
-   for(j in 1:10) {
-      sample_b = as.vector(block.list@block.list[[11]][j,])
-      table_2[i,j] = cor(sample_a, sample_b)
-   }
+table_2 <- matrix(ncol = 10, nrow = 10)
+colnames(table_2) <- paste("Samp", seq(1:10))
+rownames(table_2) <- paste("Samp", seq(1:10))
+for (i in 1:10) {
+  sample_a <- as.vector(block.list@block.list[[11]][i, ])
+  for (j in 1:10) {
+    sample_b <- as.vector(block.list@block.list[[11]][j, ])
+    table_2[i, j] <- cor(sample_a, sample_b)
+  }
 }
 
-table_2 = read.csv(system.file("extdata", "cor_matrix.csv", package = "morphoBlocks"))
-names(table_2)[1] = ""
+table_2 <- read.csv(system.file("extdata", "cor_matrix.csv", package = "morphoBlocks"))
+names(table_2)[1] <- ""
 
-knitr::kable(table_2, caption = "Table 2. Correlation between multi-part samples after the data blocks in each sample were Procrustes-transformed and scaled with the normalised centroid size method described by Collyer et al. (2020).", col.names = gsub("[.]", " ", colnames(table_2)), align = "c", digits = 3) %>% 
-  kable_classic(full_width = TRUE) %>% 
-  row_spec(0, bold = TRUE) %>% 
-  column_spec(1,  bold = TRUE) %>% 
-  column_spec(2, color = "black", background = ifelse(table_2[,2] == 1, "#A0DFAF", ifelse(table_2[,2] == 0.998, "#99DBBB", ifelse(table_2[,2] >= 0.985, "#8FC7C6", "#A17FA9")))) %>% 
-  column_spec(3, color = "black", background = ifelse(table_2[,3] == 1, "#A0DFAF", ifelse(table_2[,3] == 0.998, "#99DBBB", ifelse(table_2[,3] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(4, color = "black", background = ifelse(table_2[,4] == 1, "#A0DFAF", ifelse(table_2[,4] == 0.998, "#99DBBB", ifelse(table_2[,4] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(5, color = "black", background = ifelse(table_2[,5] == 1, "#A0DFAF", ifelse(table_2[,5] == 0.998, "#99DBBB", ifelse(table_2[,5] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(6, color = "black", background = ifelse(table_2[,6] == 1, "#A0DFAF", ifelse(table_2[,6] == 0.998, "#99DBBB", ifelse(table_2[,6] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(7, color = "black", background = ifelse(table_2[,7] == 1, "#A0DFAF", ifelse(table_2[,7] == 0.998, "#99DBBB", ifelse(table_2[,7] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(8, color = "black", background = ifelse(table_2[,8] == 1, "#A0DFAF", ifelse(table_2[,8] == 0.998, "#99DBBB", ifelse(table_2[,8] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(9, color = "black", background = ifelse(table_2[,9] == 1, "#A0DFAF", ifelse(table_2[,9] == 0.998, "#99DBBB", ifelse(table_2[,9] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(10, color = "black", background = ifelse(table_2[,10] == 1, "#A0DFAF", ifelse(table_2[,10] == 0.998, "#99DBBB", ifelse(table_2[,10] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
-  column_spec(11, color = "black", background = ifelse(table_2[,11] == 1, "#A0DFAF", ifelse(table_2[,11] == 0.998, "#99DBBB", ifelse(table_2[,11] >= 0.985, "#8FC7C6", "#A17FA9"))))
+knitr::kable(table_2, caption = "Table 2. Correlation between multi-part samples after the data blocks in each sample were Procrustes-transformed and scaled with the normalised centroid size method described by Collyer et al. (2020).", col.names = gsub("[.]", " ", colnames(table_2)), align = "c", digits = 3) %>%
+  kableExtra::kable_classic(full_width = TRUE) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::column_spec(1, bold = TRUE) %>%
+  kableExtra::column_spec(2, color = "black", background = ifelse(table_2[, 2] == 1, "#A0DFAF", ifelse(table_2[, 2] == 0.998, "#99DBBB", ifelse(table_2[, 2] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(3, color = "black", background = ifelse(table_2[, 3] == 1, "#A0DFAF", ifelse(table_2[, 3] == 0.998, "#99DBBB", ifelse(table_2[, 3] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(4, color = "black", background = ifelse(table_2[, 4] == 1, "#A0DFAF", ifelse(table_2[, 4] == 0.998, "#99DBBB", ifelse(table_2[, 4] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(5, color = "black", background = ifelse(table_2[, 5] == 1, "#A0DFAF", ifelse(table_2[, 5] == 0.998, "#99DBBB", ifelse(table_2[, 5] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(6, color = "black", background = ifelse(table_2[, 6] == 1, "#A0DFAF", ifelse(table_2[, 6] == 0.998, "#99DBBB", ifelse(table_2[, 6] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(7, color = "black", background = ifelse(table_2[, 7] == 1, "#A0DFAF", ifelse(table_2[, 7] == 0.998, "#99DBBB", ifelse(table_2[, 7] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(8, color = "black", background = ifelse(table_2[, 8] == 1, "#A0DFAF", ifelse(table_2[, 8] == 0.998, "#99DBBB", ifelse(table_2[, 8] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(9, color = "black", background = ifelse(table_2[, 9] == 1, "#A0DFAF", ifelse(table_2[, 9] == 0.998, "#99DBBB", ifelse(table_2[, 9] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(10, color = "black", background = ifelse(table_2[, 10] == 1, "#A0DFAF", ifelse(table_2[, 10] == 0.998, "#99DBBB", ifelse(table_2[, 10] >= 0.985, "#8FC7C6", "#A17FA9")))) %>%
+  kableExtra::column_spec(11, color = "black", background = ifelse(table_2[, 11] == 1, "#A0DFAF", ifelse(table_2[, 11] == 0.998, "#99DBBB", ifelse(table_2[, 11] >= 0.985, "#8FC7C6", "#A17FA9"))))
 ```
 
 &nbsp;
@@ -128,11 +132,11 @@ knitr::kable(table_2, caption = "Table 2. Correlation between multi-part samples
 Principal component analysis of combined dataset
 --------
 
-Principal component analysis is performed on the superblock from the block list using `analyseBlocks` with `option = 'pca'`, which calls `prcomp` from the base `stats` package. 
+Principal component analysis is performed on the superblock from the block list using `analyseBlocks` with `option = "pca"`, which calls `prcomp` from the base `stats` package. 
 
 ``` {r}
 # Analyse block list with principal component analysis
-result.pca = analyseBlocks(block.list, option = 'pca')
+result.pca <- analyseBlocks(block.list, option = "pca")
 ```
 
 &nbsp;
@@ -141,7 +145,7 @@ The proportion of variation explained by the first three principal components is
 
 ``` {r}
 # Generate explained variance values
-(round(result.pca$result$sdev ^ 2 / (sum(result.pca$result$sdev ^ 2)), 3))
+(round(result.pca$result$sdev^2 / (sum(result.pca$result$sdev^2)), 3))
 ```
 
 &nbsp;
@@ -156,23 +160,23 @@ loadingsPlot(result.pca, comp = 1, cex.3d = 10)
 loadingsPlot(result.pca, comp = 2, cex.3d = 10)
 ```
 
-```{r echo = FALSE, loadingsPlot01, fig.align = 'center', out.width = "90%", fig.cap = "Figure 1. Component one loadings from a principal component analysis of simulated shape data. Beginning top left and reading right and down, each group of shows mean position of landmarks in each data block. Orange represents points that have larger loadings and blue represents points that have smaller loadings."}
+```{r echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%", fig.cap = "Figure 1. Component one loadings from a principal component analysis of simulated shape data. Beginning top left and reading right and down, each group of shows mean position of landmarks in each data block. Orange represents points that have larger loadings and blue represents points that have smaller loadings."}
 knitr::include_graphics(here::here("vignettes", "loadingsPlotExample02.png"))
 ```
 
 &nbsp;
 
-```{r echo = FALSE, loadingsPlot02, fig.align = 'center', out.width = "90%", fig.cap = "Figure 2. Component two loadings from a principal component analysis of simulated shape data. See Figure 1 for key."}
+```{r echo = FALSE, loadingsPlot02, fig.align = "center", out.width = "90%", fig.cap = "Figure 2. Component two loadings from a principal component analysis of simulated shape data. See Figure 1 for key."}
 knitr::include_graphics(here::here("vignettes", "loadingsPlotExample03.png"))
 ```
 
 &nbsp;
 
-``` {r fig.align = 'center', out.width = "90%", fig.height = 4, fig.cap = "Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and PC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."}
+``` {r fig.align = "center", out.width = "90%", fig.height = 4, fig.cap = "Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and PC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."}
 # Figure 3
-par(mfrow = c(1,2))
-scoresPlot(result.pca, comp = c(1,2), plabels = 1:10)
-scoresPlot(result.pca, comp = c(2,3), plabels = 1:10)
+par(mfrow = c(1, 2))
+scoresPlot(result.pca, comp = c(1, 2), plabels = 1:10)
+scoresPlot(result.pca, comp = c(2, 3), plabels = 1:10)
 ```
 
 &nbsp;
@@ -180,11 +184,11 @@ scoresPlot(result.pca, comp = c(2,3), plabels = 1:10)
 Regularised consensus principal component analysis of scaled dataset
 --------
 
-Regularised consensus principal component analysis (mode 2) is performed on the block list using `analyeBlocks` with `option = 'rcpca`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus & Guillemot, 2017). 
+Regularised consensus principal component analysis (mode 2) is performed on the block list using `analyeBlocks` with `option = "rcpca"`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus & Guillemot, 2017). 
 
 ``` {r}
 # Analyse block list
-result.rcpca = analyseBlocks(block.list, option = 'rcpca', ncomp = 20)
+result.rcpca <- analyseBlocks(block.list, option = "rcpca", ncomp = 20)
 ```
 
 &nbsp;
@@ -208,13 +212,13 @@ loadingsPlot(result.rcpca, comp = 1, cex.3d = 10)
 loadingsPlot(result.rcpca, comp = 2, cex.3d = 10)
 ```
 
-```{r echo = FALSE, loadingsPlot03, fig.align = 'center', out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
+```{r echo = FALSE, loadingsPlot03, fig.align = "center", out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
 knitr::include_graphics(here::here("vignettes", "loadingsPlotExample04.png"))
 ```
 
 &nbsp;
 
-```{r echo = FALSE, loadingsPlot04, fig.align = 'center', out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
+```{r echo = FALSE, loadingsPlot04, fig.align = "center", out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
 knitr::include_graphics(here::here("vignettes", "loadingsPlotExample05.png"))
 ```
 
@@ -222,11 +226,11 @@ knitr::include_graphics(here::here("vignettes", "loadingsPlotExample05.png"))
 
 Global component one distinguishes sample 1 and sample 2 from the remaining samples (i.e. largest source of variation in the dataset) (Figure 6). Global component two distinguishes samples three, four, five and six from samples seven, eight, nine and ten (i.e. second largest source of variation in the dataset), and also shows the similarity between sample one and samples three to six, and sample two and samples seven to ten (i.e. third largest source of variation in the dataset) (Figure 6). The clustered samples three to six, and seven to ten, are offset from one another along GC2, which indicates that the random noise is also being explained by this global component. Hence, the four sources of variation that were intentionally introduced into the dataset are explained by the first two global components of CPCA. The second global component of the CPCA consensus space also explains the random noise which was not explained by PC2 and was weakly explained by PC3 in the principal component analysis (Figure 3). In summary, GC1 and GC2 from CPCA integrate all of the variation in dataset.
 
-``` {r fig.align = 'center', out.width = "90%", fig.height = 4, fig.cap = "Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 and GC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."}
+``` {r fig.align = "center", out.width = "90%", fig.height = 4, fig.cap = "Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 and GC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."}
 # Figure 6
-par(mfrow = c(1,2))
-scoresPlot(result.rcpca, comp = c(1,2), plabels = 1:10, consensus.only = T)
-scoresPlot(result.rcpca, comp = c(2,3), plabels = 1:10, consensus.only = T)
+par(mfrow = c(1, 2))
+scoresPlot(result.rcpca, comp = c(1, 2), plabels = 1:10, consensus.only = TRUE)
+scoresPlot(result.rcpca, comp = c(2, 3), plabels = 1:10, consensus.only = TRUE)
 ```
 
 &nbsp;
@@ -234,7 +238,7 @@ scoresPlot(result.rcpca, comp = c(2,3), plabels = 1:10, consensus.only = T)
 Conclusion
 --------
 
-Principal component analysis on scaled and combined data blocks (i.e. `analyseBlocks`, `option = 'pca'`) and regularised consensus principal component analysis on the list of data blocks (i.e. `analyseBlocks`, `option = 'rcpca'`) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.
+Principal component analysis on scaled and combined data blocks (i.e. `analyseBlocks`, `option = "pca"`) and regularised consensus principal component analysis on the list of data blocks (i.e. `analyseBlocks`, `option = "rcpca"`) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.
 
 &nbsp;
 

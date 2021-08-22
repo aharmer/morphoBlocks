@@ -8,47 +8,43 @@
 #' @details \code{reMesh} can be used for 3D mesh preprocessing before computationally demanding analyses.
 #' \code{reMesh} is a wrapper for \code{vcgImport}, \code{vcgMeshres}, \code{vcgPlyWrite} and \code{vcgQEdecim} from the \code{Rvcg} package (Schlager, 2017).
 #'
-#' @references
-#' \itemize{
-#'   \item Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
-#'   \item Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
-#'   }
+#' @references Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+#' @references Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
 #'
-#' @import Rvcg
+#' @importFrom Rvcg vcgImport vcgMeshres vcgPlyWrite vcgQEdecim vcgSmooth vcgUniformRemesh
 #' @export
-reMesh = function(dirpath, scale = 1) {
+reMesh <- function(dirpath, scale = 1) {
+  # require(Rvcg, quietly = TRUE, warn.conflicts = FALSE)
 
-  require(Rvcg, quietly = TRUE, warn.conflicts = FALSE)
-
-  files = list.files(dirpath, full.names = TRUE, pattern = "\\.obj|ply|stl$")
+  files <- list.files(dirpath, full.names = TRUE, pattern = "\\.obj|ply|stl$")
   if (length(files) >= 1) {
-    mesh.list = lapply(files, vcgImport)
+    mesh.list <- lapply(files, vcgImport)
   } else {
     stop("No mesh files detected")
   }
 
-  vert = c()
-  for(i in 1: length(mesh.list)) {
-    vert[i] = dim(mesh.list[[i]] $vb)[2]
+  vert <- c()
+  for (i in 1:length(mesh.list)) {
+    vert[i] <- dim(mesh.list[[i]]$vb)[2]
   }
-  vertscale = min(vert) / vert
+  vertscale <- min(vert) / vert
 
-  dec.list = list()
-  for(i in 1: length(mesh.list)) {
-    dec.list[[i]] = vcgQEdecim(mesh.list[[i]], percent = vertscale[i], topo = FALSE)
+  dec.list <- list()
+  for (i in 1:length(mesh.list)) {
+    dec.list[[i]] <- vcgQEdecim(mesh.list[[i]], percent = vertscale[i], topo = FALSE)
   }
 
-  dir.create(paste(dirpath, "/reMesh", sep = ""), showWarnings = F)
+  dir.create(paste(dirpath, "/reMesh", sep = ""), showWarnings = FALSE)
 
-  rem = lapply(dec.list, function(mesh, scale) {
-    edge.length = as.numeric(vcgMeshres(mesh)[1])
-    #new.mesh = vcgUniformRemesh(mesh, voxelSize = edge.length * (1 / sqrt(scale)), multiSample = TRUE)
-    new.mesh = vcgUniformRemesh(mesh, voxelSize = edge.length * scale, multiSample = TRUE)
-    smooth.mesh = vcgSmooth(new.mesh, type = "surfPreserveLaplace", iteration = 1, delta = 0.3)
+  rem <- lapply(dec.list, function(mesh, scale) {
+    edge.length <- as.numeric(vcgMeshres(mesh)[1])
+    # new.mesh = vcgUniformRemesh(mesh, voxelSize = edge.length * (1 / sqrt(scale)), multiSample = TRUE)
+    new.mesh <- vcgUniformRemesh(mesh, voxelSize = edge.length * scale, multiSample = TRUE)
+    smooth.mesh <- vcgSmooth(new.mesh, type = "surfPreserveLaplace", iteration = 1, delta = 0.3)
   }, scale)
 
-  plynames = gsub(".obj|.stl", ".ply", list.files(dirpath, full.names = F, pattern = "\\.obj|ply|stl$"))
-  for (i in 1: length(rem)) {
+  plynames <- gsub(".obj|.stl", ".ply", list.files(dirpath, full.names = FALSE, pattern = "\\.obj|ply|stl$"))
+  for (i in 1:length(rem)) {
     vcgPlyWrite(rem[[i]], paste(dirpath, "/reMesh/", plynames[i], sep = ""))
   }
 }

@@ -4,7 +4,14 @@
 \alias{formatBlock}
 \title{Format configurations into a data block}
 \usage{
-formatBlock(block, curves = NULL, surfaces = NULL, cs = NULL, k = 2, gpa = T)
+formatBlock(
+  block,
+  curves = NULL,
+  surfaces = NULL,
+  cs = NULL,
+  k = 2,
+  gpa = TRUE
+)
 }
 \arguments{
 \item{block}{two-dimensional matrix or three-dimensional array of configurations to be formatted into a data block.}
@@ -21,21 +28,26 @@ formatBlock(block, curves = NULL, surfaces = NULL, cs = NULL, k = 2, gpa = T)
 }
 \value{
 a 'block' object, used for downstream analyses. The list contains the elements:
-\itemize{
-  \item \code{raw} collation of original configuration data
-  \item \code{gpa.3D} if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 3D array. If \code{gpa = FALSE}, original configuration data organised into a 3D array (may duplicate \code{raw})
-  \item \code{gpa.2D} if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 2D matrix. If \code{gpa = FALSE}, original configuration data organised into a 2D matrix (may duplicate \code{raw})
-  \item \code{centroid} centroid sizes either calculated from original configurations or supplied using the \code{cs} argument
-  \item \code{p} number of points in the configurations of each data block
-  \item \code{k} number of dimensions that the points in each configuration has
-  \item \code{n} number of configurations included in each data block
-  }
+
+\item{raw}{collation of original configuration data}
+
+\item{gpa.3D}{if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 3D array. If \code{gpa = FALSE}, original configuration data organised into a 3D array (may duplicate \code{raw})}
+
+\item{gpa.2D}{if \code{gpa = TRUE}, configurations after Procrustes transformation organised into a 2D matrix. If \code{gpa = FALSE}, original configuration data organised into a 2D matrix (may duplicate \code{raw})}
+
+\item{centroid}{centroid sizes either calculated from original configurations or supplied using the \code{cs} argument}
+
+\item{p}{number of points in the configurations of each data block}
+
+\item{k}{number of dimensions that the points in each configuration has}
+
+\item{n}{number of configurations included in each data block}
 }
 \description{
 Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. \code{formatBlock} is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016).
 }
 \details{
-\code{formatBlock} expects configurations to be presented as either a two-dimensional matrix or a three-dimensional array. If data are presented as a two-dimensional matrix then the number of \code{k} dimensions for the landmarks (or pseudolandmarks) must be specified (default \code{k = 2}), each configuration should be a separate row in the matrix, and columns should contain corresponding points and dimensions in each configuration. If data are presented as a three-dimensional array then each of the \code{n} configurations should be a separate matrix in the array (i.e. \code{array[p, k, n]}), and each matrix should have the same number of rows and columns where rows represent \code{p} points and columns represent \code{k} dimensions of each point.
+\code{formatBlock} expects configurations to be presented as either a two-dimensional matrix or a three-dimensional array. If data are presented as a two-dimensional matrix then the number of \emph{k} dimensions for the landmarks (or pseudolandmarks) must be specified (default \code{k = 2}), each configuration should be a separate row in the matrix, and columns should contain corresponding points and dimensions in each configuration. If data are presented as a three-dimensional array then each of the \emph{n} configurations should be a separate matrix in the array (i.e. \code{array[p, k, n]}), and each matrix should have the same number of rows and columns where rows represent \emph{p} points and columns represent \emph{k} dimensions of each point.
 By default \code{formatBlock} will perform generalised Procustes analysis (gpa) on the block using \code{gpagen} from the \code{geomorph} package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set \code{gpa = FALSE}. Centroid sizes of the original configurations should be supplied using the \code{cs} argument if \code{gpa = FALSE}, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
 \code{formatBlock} is a wrapper function for the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
 }
@@ -43,15 +55,16 @@ By default \code{formatBlock} will perform generalised Procustes analysis (gpa) 
 # Format the head and tail data from the Plethodon dataset in the geomorph library
 library(geomorph)
 data(larvalMorph)
-block1 = formatBlock(block = larvalMorph$headcoords, curves = larvalMorph$head.sliders)
-block2 = formatBlock(block = larvalMorph$tailcoords, curves = larvalMorph$tail.sliders)
+block1 <- formatBlock(block = larvalMorph$headcoords, curves = larvalMorph$head.sliders)
+block2 <- formatBlock(block = larvalMorph$tailcoords, curves = larvalMorph$tail.sliders)
 
 }
 \references{
-\itemize{
-  \item Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
-  \item Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
-  \item Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
-  \item Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
-  }
+Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+
+Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
+
+Pomidor BJ, Makedonska J, Slice DE. 2016. A landmark-free method for three-dimensional shape analysis. PLoS One 11: e0150368 https://doi.org/10.1371/journal.pone.0150368
+
+Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
 }

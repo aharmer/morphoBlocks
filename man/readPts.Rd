@@ -4,7 +4,7 @@
 \alias{readPts}
 \title{Read and combine multiple Landmark Editor files into a single data block}
 \usage{
-readPts(dirpath, landmarkRM = c(), gpa = T)
+readPts(dirpath, landmarkRM = c(), gpa = TRUE)
 }
 \arguments{
 \item{dirpath}{the directory path where two or more landmark configurations with  .pts extensions will be found.}
@@ -15,17 +15,24 @@ readPts(dirpath, landmarkRM = c(), gpa = T)
 }
 \value{
 a 'block' class object, used for downstream analyses. The list contains the elements:
-\itemize{
-  \item \code{raw} collation of landmark configurations without Procrustes transformation
-  \item \code{gpa.3D} landmark configurations after Procrustes transformation organised into a 3D array
-  \item \code{gpa.2D} landmark configurations after Procrustes transformation organised into a 2D matrix
-  \item \code{centroid} centroid sizes of landmark configurations without Procrustes transformation
-  \item \code{p} number of landmarks that each configuration within the data block has
-  \item \code{k} number of dimensions that each landmark within the data block has
-  \item \code{n} number of landmark configurations included in the data block
-  \item \code{curves} matrix for correctly calculating position of curve semilandmarks (see \code{geomorph::gpagen} for more detail)
-  \item \code{surfaces} vector passed for defining positions of semilandmarks on surfaces (see \code{geomorph::gpagen} for more detail)
-  }
+
+\item{raw}{collation of landmark configurations without Procrustes transformation}
+
+\item{gpa.3D}{landmark configurations after Procrustes transformation organised into a 3D array}
+
+\item{gpa.2D}{landmark configurations after Procrustes transformation organised into a 2D matrix}
+
+\item{centroid}{centroid sizes of landmark configurations without Procrustes transformation}
+
+\item{p}{number of landmarks that each configuration within the data block has}
+
+\item{k}{number of dimensions that each landmark within the data block has}
+
+\item{n}{number of landmark configurations included in the data block}
+
+\item{curves}{matrix for correctly calculating position of curve semilandmarks (see \code{geomorph::gpagen} for more detail)}
+
+\item{surfaces}{vector passed for defining positions of semilandmarks on surfaces (see \code{geomorph::gpagen} for more detail)}
 }
 \description{
 Reads, collates and transforms landmark configurations from multiple specimens. \code{readPts} expects a directory containing two or more files with .pts extensions (i.e. landmark configurations exported from the Landmark Editor, Wiley et al. 2005).
@@ -36,26 +43,28 @@ Reads, collates and transforms landmark configurations from multiple specimens. 
 Landmarks are identified by their sequence within the configuration, which is an important consideration when excluding landmarks from the data block. For example, \code{landmarkRM = c(1,3)} would remove the first and third landmarks from all configurations once they were read into the \R environment, and thus the data block would not include landmark 1 and landmark 3. The \code{landmarkRM} term might be used for analyses that want to test the sensitivity of dataset covariation on one or more landmarks.
 }
 \examples{
+\dontrun{
 # Example 1
 # For this example to work a directory (/...) containing .pts files must first be prepared.
-dirpath = "/..."
-block1 = readPts(dirpath)
+dirpath <- "/..."
+block1 <- readPts(dirpath)
 block1@p
 block1@k
 block1@n
 
 # Example 2
 # Exclude the first and third landmarks from the data block
-block2 = readPts(dirpath, landmarkRM = c(1,3))
+block2 <- readPts(dirpath, landmarkRM = c(1, 3))
 block2@p
 block2@k
 block2@n
+}
 
 }
 \references{
-\itemize{
-  \item Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
-  \item Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
-  \item Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
-  }
+Adams DC, Otárola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393–399 https://doi.org/10.1111/2041-210X.12035
+
+Schlager S. 2017. Morpho and Rvcg–shape analysis in \R. In Zheng G, Li S, Székely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217–256.
+
+Wiley DF, Amenta N, Alcantara DA, Ghosh D, Kil YJ, Delson E, Harcourt-Smith W, Rohlf FJ, St. John K, Hamann B. 2005. Evolutionary morphing. Proceedings of the IEEE Visualization 2005 (VIS’05), 431–438.
 }

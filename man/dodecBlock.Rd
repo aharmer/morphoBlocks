@@ -35,15 +35,20 @@ dodecBlock(
 }
 \value{
 a 'blockList' object of \emph{n} dodecahedra, used for downstream analyses. The list contains the elements:
-\itemize{
-  \item \code{raw} configurations without Procrustes transformation
-  \item \code{gpa.3D} configurations after Procrustes transformation organised into a 3D array
-  \item \code{gpa.2D} configurations after Procrustes transformation organised into a 2D matrix
-  \item \code{centroid} centroid sizes of the configurations
-  \item \code{p} number of points in the configurations of each data block
-  \item \code{k} number of dimensions that the points in each configuration has
-  \item \code{n} number of configurations included in each data block
-  }
+
+\item{raw}{configurations without Procrustes transformation}
+
+\item{gpa.3D}{configurations after Procrustes transformation organised into a 3D array}
+
+\item{gpa.2D}{configurations after Procrustes transformation organised into a 2D matrix}
+
+\item{centroid}{centroid sizes of the configurations}
+
+\item{p}{number of points in the configurations of each data block}
+
+\item{k}{number of dimensions that the points in each configuration has}
+
+\item{n}{number of configurations included in each data block}
 }
 \description{
 Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedron represent a landmark configuration with \emph{p = 20} points in \emph{k = 3} dimensions. The data block is transformed using generalised Procrustes analysis.
@@ -54,14 +59,14 @@ Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedro
 }
 \examples{
 # Example 1: Generate a block with ten configurations
-block = dodecBlock()
+block <- dodecBlock()
+
 # Example 2: Generate a block with five configurations. Rotate the configurations and translate the first vertex in each configuration. Plot the result.
-block2 = dodecBlock(n = 5, theta_z = seq(from = 0, to = 270, by = 60), vertex_shift = 0:4, plot = TRUE)
+block2 <- dodecBlock(n = 5, theta_z = seq(from = 0, to = 270, by = 60), vertex_shift = 0:4, plot = TRUE)
 
 }
 \references{
-\itemize{
-  \item Adams DC, Ot?rola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
-  \item Schlager S. 2017. Morpho and Rvcg-shape analysis in \R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
-  }
+Adams DC, Ot?rola-Castillo E. 2013. geomorph: an \R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution 4:393-399 https://doi.org/10.1111/2041-210X.12035
+
+Schlager S. 2017. Morpho and Rvcg-shape analysis in \R. In Zheng G, Li S, Sz?kely (eds.) Statistical shape and deformation analysis. Academic Press, London. Pp. 217-256.
 }

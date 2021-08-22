@@ -9,7 +9,7 @@ scoresPlot(
   comp = c(1, 2),
   pcol = NULL,
   plabels = NULL,
-  consensus.only = F
+  consensus.only = FALSE
 )
 }
 \arguments{
@@ -31,23 +31,22 @@ Bivariate scatterplot (or plots) of the score values from an analysis of data bl
 }
 \details{
 \code{scoresPlot} helps to visualise the result from the \code{analyseBlocks} function and gives a different result depending on whether 1) \code{option = "rcpca"} or 2) \code{option = "pca"}) was used for \code{analyseBlocks}.
-1) If \code{option = "pca"} was used for \code{analyseBlocks} then a scatterplot will be produced for the selected components from each individual block and for the consensus space. Axes will display the average variance explained by the components of the individual blocks and the consensus. Average variance explained by a selected component is presented as a proportion of the total variance. For detail about average variance explained see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017).
+1) If \code{option = "rpcca"} was used for \code{analyseBlocks} then a scatterplot will be produced for the selected components from each individual block and for the consensus space. Axes will display the average variance explained by the components of the individual blocks and the consensus. Average variance explained by a selected component is presented as a proportion of the total variance. For detail about average variance explained see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017).
 2) If \code{option = "pca"} was selected for \code{analyseBlocks} then a scatterplot will be produced for the selected components from the analysis of the superblock. Axes will display the variance explained by the components of the superblock. Variance explained by a selected component is presented as a proportion of the total variance explained by all components.
 }
 \examples{
-block1 = dodecBlock()
-block2 = dodecBlock()
-blocklist = combineBlocks(blocks = c(block1, block2))
-result1 = analyseBlocks(blocklist)
-result2 = analyseBlocks(blocklist, option = "pca", ncomp = 10)
+block1 <- dodecBlock()
+block2 <- dodecBlock()
+blocklist <- combineBlocks(blocks = c(block1, block2))
+result1 <- analyseBlocks(blocklist)
+result2 <- analyseBlocks(blocklist, option = "pca", ncomp = 10)
 scoresPlot(result1)
 dev.off()
-scoresPlot(result2, comp = c(2,3), pcol = colorRampPalette(c(rgb(1, 0.7, 0,1), rgb(0, 0, 1, 1)), alpha = TRUE)(result2@n[1]))
+scoresPlot(result2, comp = c(2, 3), pcol = colorRampPalette(c(rgb(1, 0.7, 0, 1), rgb(0, 0, 1, 1)), alpha = TRUE)(result2$n[1]))
 
 }
 \references{
-\itemize{
-  \item Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
-  \item Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
-  }
+Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+
+Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
 }

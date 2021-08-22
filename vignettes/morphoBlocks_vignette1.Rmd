@@ -12,6 +12,7 @@ vignette: >
   %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
+  %\VignetteDepends{kableExtra}
 ---
 
 ```{r setup, include = FALSE}
@@ -44,9 +45,9 @@ The analysis in this example will use the mean values of the three replicate lan
 ``` {r}
 # Extract and average the landmark configurations
 
-hum_av = (hum1@raw + hum2@raw + hum3@raw)/3
-rad_av = (rad1@raw + rad2@raw + rad3@raw)/3
-uln_av = (uln1@raw + uln2@raw + uln3@raw)/3
+hum_av <- (hum1@raw + hum2@raw + hum3@raw) / 3
+rad_av <- (rad1@raw + rad2@raw + rad3@raw) / 3
+uln_av <- (uln1@raw + uln2@raw + uln3@raw) / 3
 ```
 
 &nbsp;  
@@ -58,9 +59,9 @@ Each set of averaged landmarks can now be formatted into a data block with the `
 ``` {r}
 # Format the averaged landmark configurations into data blocks
 
-block1 = formatBlock(hum_av, curves = hum1@curves, k = 3, gpa = TRUE)
-block2 = formatBlock(rad_av, curves = rad1@curves, k = 3, gpa = TRUE)
-block3 = formatBlock(uln_av, curves = uln1@curves, k = 3, gpa = TRUE)
+block1 <- formatBlock(hum_av, curves = hum1@curves, k = 3, gpa = TRUE)
+block2 <- formatBlock(rad_av, curves = rad1@curves, k = 3, gpa = TRUE)
+block3 <- formatBlock(uln_av, curves = uln1@curves, k = 3, gpa = TRUE)
 ```
 
 &nbsp;
@@ -70,19 +71,19 @@ The three data blocks of Procrustes-transformed configurations (humerus, radius,
 ``` {r}
 # Scale and combine data blocks into a single list of blocks
 
-blocklist = combineBlocks(blocks = c(block1, block2, block3))
+blocklist <- combineBlocks(blocks = c(block1, block2, block3))
 ```
 
 &nbsp;
 
 Analyse list of blocks
 --------
-The scaled data blocks are analysed with regularised consensus principal component analysis (RCPCA) in mode 2 using the `rgcca` function from `RGCCA` (Tenenhaus & Guillemot, 2017), which is called by `analyseBlocks` when `option = 'rcpca'`.
+The scaled data blocks are analysed with regularised consensus principal component analysis (RCPCA) in mode 2 using the `rgcca` function from `RGCCA` (Tenenhaus & Guillemot, 2017), which is called by `analyseBlocks` when `option = "rcpca"`.
 
 ``` {r}
 # Analyse the list of data blocks using RCPCA
 
-result = analyseBlocks(blocklist, ncomp = 10)
+result <- analyseBlocks(blocklist, ncomp = 10)
 ```
 
 &nbsp;
@@ -91,10 +92,10 @@ Plot results
 --------
 Use `scoresPlot` to show the consensus space from the analysis, which here represents a morphospace for the partial-wing skeleton.
 
-``` {r fig.align = 'center'}
+``` {r fig.align = "center"}
 # Setup colour vector to show different ages of fossil penguins. Paleocene (brown), stem-lineage penguins from the Oligocene (light brown), and extant penguins (white).
 
-pcol = c("#ffffff", "#ffffff", "#ffffff", "#ffffff", "#e6b481", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#feebd3", "#feebd3", "#ffffff", "#e6b481", "#feebd3", "#ffffff")
+pcol <- c("#ffffff", "#ffffff", "#ffffff", "#ffffff", "#e6b481", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#feebd3", "#feebd3", "#ffffff", "#e6b481", "#feebd3", "#ffffff")
 
 
 # Plot consensus space showing global component one (GC1) and global component one (GC2)
@@ -123,20 +124,20 @@ loadingsPlot(result, cex.3d = 15)
 Data sources
 --------
 ``` {r echo = FALSE}
-dat = read.csv(system.file("extdata", "penguin_bone_metadata.csv", package = "morphoBlocks"))
+dat <- read.csv(system.file("extdata", "penguin_bone_metadata.csv", package = "morphoBlocks"))
 
 knitr::kable(dat, caption = "Table 1. 3D digital replicas produced from bones of modern and fossil penguins.", align = "c") %>%
-  kable_classic(full_width = FALSE) %>% 
-  column_spec(2:3, italic = TRUE) %>% 
-  row_spec(0, bold = TRUE) %>% 
-  footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, New Zealand; UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
+  kableExtra::kable_classic(full_width = FALSE) %>%
+  kableExtra::column_spec(2:3, italic = TRUE) %>%
+  kableExtra::row_spec(0, bold = TRUE) %>%
+  kableExtra::footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, New Zealand; UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
 ```
 
 &nbsp;
 
 References
 --------
-* D. C. & Otárola-Castillo, E. (2013). Geomorph: An R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393–399. https://doi.org/10.1111/2041-210x.12035
+* D. C. & Otárola-Castillo, E. (2013). Geomorph: An *R* package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393–399. https://doi.org/10.1111/2041-210x.12035
 
 * Collyer, M. L., Davis, M. A. & Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. https://doi.org/10.1007/s11692-020-09503-z
 
@@ -144,7 +145,7 @@ References
 
 * Ksepka, D. T., Fordyce, R. E., Ando, T. & Jones, C. M. (2012). New fossil penguins (Aves, Sphenisciformes) from the Oligocene of New Zealand reveal the skeletal plan of stem penguins. Journal of Vertebrate Paleontology, 32, 235–254. https://doi.org/10.1080/02724634.2012.652051
 
-* Schlager, S. (2017). Morpho and Rvcg – Shape Analysis in R. In G. Zheng, S. Li & G. Székely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.
+* Schlager, S. (2017). Morpho and Rvcg – Shape Analysis in *R*. In G. Zheng, S. Li & G. Székely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.
 
 * Slack, K. E., Jones, C. M., Ando, T., Harrison, G. L., Fordyce, R. E., Arnason, U. & Penny, D. (2006). Early penguin fossils, plus mitochondrial genomes, calibrate avian evolution. Molecular Biology and Evolution, 23, 1144–1155. https://doi.org/10.1093/molbev/msj124
 
@@ -152,4 +153,3 @@ References
 
 &nbsp;
 &nbsp;
-

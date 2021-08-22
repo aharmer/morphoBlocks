@@ -4,6 +4,6 @@
 #'
 #' @name blockList-class
 #' @rdname blockList-class
-#' @import methods
+#' @importFrom methods setClass new
 #' @export
-blockList_out = setClass("blockList", slots = c(block.list = "list", p = "integer", k = "integer", n = "integer"))
+blockList_out <- setClass("blockList", slots = c(block.list = "list", p = "integer", k = "integer", n = "integer"))

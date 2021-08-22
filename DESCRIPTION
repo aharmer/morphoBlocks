@@ -16,11 +16,18 @@ Imports:
   adephylo,
   data.table,
   geomorph,
+  graphics,
+  grDevices,
   methods,
   Morpho,
   phytools,
   RGCCA,
-  Rvcg
+  rgl,
+  Rvcg,
+  stats
+Suggests:
+  here,
+  kableExtra
 RoxygenNote: 7.1.1
 Suggests: knitr,
     rmarkdown

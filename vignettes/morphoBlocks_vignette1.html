@@ -12,7 +12,7 @@
 
 <meta name="author" content="Daniel B. Thomas" />
 
-<meta name="date" content="2021-08-20" />
+<meta name="date" content="2021-08-22" />
 
 <title>Constructing a morphospace for a partial-wing skeleton</title>
 
@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">Constructing a morphospace for a partial-wing skeleton</h1>
 <h4 class="author">Daniel B. Thomas</h4>
-<h4 class="date">2021-08-20</h4>
+<h4 class="date">2021-08-22</h4>
 
 
 <div id="TOC">
@@ -168,9 +168,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The analysis in this example will use the mean values of the three replicate landmark configurations from each part. Creating these averaged values requires averaging the configurations stored in the <em><span class="citation">@raw</span></em> term of their respective block-class objects.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract and average the landmark configurations</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hum_av <span class="ot">=</span> (hum1<span class="sc">@</span>raw <span class="sc">+</span> hum2<span class="sc">@</span>raw <span class="sc">+</span> hum3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>rad_av <span class="ot">=</span> (rad1<span class="sc">@</span>raw <span class="sc">+</span> rad2<span class="sc">@</span>raw <span class="sc">+</span> rad3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>uln_av <span class="ot">=</span> (uln1<span class="sc">@</span>raw <span class="sc">+</span> uln2<span class="sc">@</span>raw <span class="sc">+</span> uln3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>hum_av <span class="ot">&lt;-</span> (hum1<span class="sc">@</span>raw <span class="sc">+</span> hum2<span class="sc">@</span>raw <span class="sc">+</span> hum3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>rad_av <span class="ot">&lt;-</span> (rad1<span class="sc">@</span>raw <span class="sc">+</span> rad2<span class="sc">@</span>raw <span class="sc">+</span> rad3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>uln_av <span class="ot">&lt;-</span> (uln1<span class="sc">@</span>raw <span class="sc">+</span> uln2<span class="sc">@</span>raw <span class="sc">+</span> uln3<span class="sc">@</span>raw)<span class="sc">/</span><span class="dv">3</span></span></code></pre></div>
 <p> </p>
 </div>
 <div id="prepare-data-blocks-for-analysis" class="section level2">
@@ -178,27 +178,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Each set of averaged landmarks can now be formatted into a data block with the <code>formatBlock</code> function. Here, we will use the <em><span class="citation">@curves</span></em> term from one of the replicates, and will set <code>gpa = TRUE</code> to perform generalised Procrustes transformation on the landmark configurations. Generalised Procrustes transformation is performed using <code>gpagen</code> from <code>geomorph</code> (Adams &amp; Otárola-Castillo, 2013), which is called by <code>formatBlock</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Format the averaged landmark configurations into data blocks</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>block1 <span class="ot">=</span> <span class="fu">formatBlock</span>(hum_av, <span class="at">curves =</span> hum1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Attaching package: &#39;RRPP&#39;</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; The following object is masked from &#39;package:morphoBlocks&#39;:</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;     classify</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>block2 <span class="ot">=</span> <span class="fu">formatBlock</span>(rad_av, <span class="at">curves =</span> rad1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>block3 <span class="ot">=</span> <span class="fu">formatBlock</span>(uln_av, <span class="at">curves =</span> uln1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>block1 <span class="ot">&lt;-</span> <span class="fu">formatBlock</span>(hum_av, <span class="at">curves =</span> hum1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>block2 <span class="ot">&lt;-</span> <span class="fu">formatBlock</span>(rad_av, <span class="at">curves =</span> rad1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>block3 <span class="ot">&lt;-</span> <span class="fu">formatBlock</span>(uln_av, <span class="at">curves =</span> uln1<span class="sc">@</span>curves, <span class="at">k =</span> <span class="dv">3</span>, <span class="at">gpa =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p> </p>
 <p>The three data blocks of Procrustes-transformed configurations (humerus, radius, ulna) are organised into a list of data blocks and scaled using the normalised weighted centroid size method from Collyer et al. (2020).</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale and combine data blocks into a single list of blocks</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>blocklist <span class="ot">=</span> <span class="fu">combineBlocks</span>(<span class="at">blocks =</span> <span class="fu">c</span>(block1, block2, block3))</span></code></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>blocklist <span class="ot">&lt;-</span> <span class="fu">combineBlocks</span>(<span class="at">blocks =</span> <span class="fu">c</span>(block1, block2, block3))</span></code></pre></div>
 <p> </p>
 </div>
 <div id="analyse-list-of-blocks" class="section level2">
 <h2>Analyse list of blocks</h2>
-<p>The scaled data blocks are analysed with regularised consensus principal component analysis (RCPCA) in mode 2 using the <code>rgcca</code> function from <code>RGCCA</code> (Tenenhaus &amp; Guillemot, 2017), which is called by <code>analyseBlocks</code> when <code>option = &#39;rcpca&#39;</code>.</p>
+<p>The scaled data blocks are analysed with regularised consensus principal component analysis (RCPCA) in mode 2 using the <code>rgcca</code> function from <code>RGCCA</code> (Tenenhaus &amp; Guillemot, 2017), which is called by <code>analyseBlocks</code> when <code>option = &quot;rcpca&quot;</code>.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse the list of data blocks using RCPCA</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">=</span> <span class="fu">analyseBlocks</span>(blocklist, <span class="at">ncomp =</span> <span class="dv">10</span>)</span></code></pre></div>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>result <span class="ot">&lt;-</span> <span class="fu">analyseBlocks</span>(blocklist, <span class="at">ncomp =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p> </p>
 </div>
 <div id="plot-results" class="section level2">
@@ -207,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup colour vector to show different ages of fossil penguins. Paleocene (brown),</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># stem-lineage penguins from the Oligocene (light brown), and extant penguins (white).</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pcol <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#e6b481&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>pcol <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#e6b481&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#feebd3&quot;</span>, <span class="st">&quot;#feebd3&quot;</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;#ffffff&quot;</span>, <span class="st">&quot;#e6b481&quot;</span>, <span class="st">&quot;#feebd3&quot;</span>, <span class="st">&quot;#ffffff&quot;</span>)</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
@@ -800,11 +795,11 @@ OU
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>
-<li><p>D. C. &amp; Otárola-Castillo, E. (2013). Geomorph: An R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393–399. <a href="https://doi.org/10.1111/2041-210x.12035" class="uri">https://doi.org/10.1111/2041-210x.12035</a></p></li>
+<li><p>D. C. &amp; Otárola-Castillo, E. (2013). Geomorph: An <em>R</em> package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393–399. <a href="https://doi.org/10.1111/2041-210x.12035" class="uri">https://doi.org/10.1111/2041-210x.12035</a></p></li>
 <li><p>Collyer, M. L., Davis, M. A. &amp; Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. <a href="https://doi.org/10.1007/s11692-020-09503-z" class="uri">https://doi.org/10.1007/s11692-020-09503-z</a></p></li>
 <li><p>Ksepka, D. T. &amp; Ando, T. (2011). Penguins past, present, and future: Trends in the evolution of the Sphenisciformes. In G. Dyke &amp; G. Kaiser (Ed.), Living Dinosaurs: The Evolutionary History of Modern Birds, First Edition (pp. 155–186). John Wiley &amp; Sons.</p></li>
 <li><p>Ksepka, D. T., Fordyce, R. E., Ando, T. &amp; Jones, C. M. (2012). New fossil penguins (Aves, Sphenisciformes) from the Oligocene of New Zealand reveal the skeletal plan of stem penguins. Journal of Vertebrate Paleontology, 32, 235–254. <a href="https://doi.org/10.1080/02724634.2012.652051" class="uri">https://doi.org/10.1080/02724634.2012.652051</a></p></li>
-<li><p>Schlager, S. (2017). Morpho and Rvcg – Shape Analysis in R. In G. Zheng, S. Li &amp; G. Székely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.</p></li>
+<li><p>Schlager, S. (2017). Morpho and Rvcg – Shape Analysis in <em>R</em>. In G. Zheng, S. Li &amp; G. Székely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.</p></li>
 <li><p>Slack, K. E., Jones, C. M., Ando, T., Harrison, G. L., Fordyce, R. E., Arnason, U. &amp; Penny, D. (2006). Early penguin fossils, plus mitochondrial genomes, calibrate avian evolution. Molecular Biology and Evolution, 23, 1144–1155. <a href="https://doi.org/10.1093/molbev/msj124" class="uri">https://doi.org/10.1093/molbev/msj124</a></p></li>
 <li><p>Tenenhaus, A. &amp; Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. <a href="https://CRAN.R-project.org/package=RGCCA" class="uri">https://CRAN.R-project.org/package=RGCCA</a>.</p></li>
 </ul>
