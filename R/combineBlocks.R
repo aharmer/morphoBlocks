@@ -2,7 +2,7 @@
 #'
 #' @description Combines two or more blocks of shape configuration data into a block list. Scales all data blocks using the normalised centroid size method from Profico et al. (2019) (and further described by Collyer et al. 2020). Such scaling occurs by default but is optional and can be prevented. A superblock is produced by column-wise concatenation of the individual blocks.
 #'
-#' @param blocks list of 'block' objects produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions.
+#' @param blocks vector of 'block' object names produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions. e.g. blocks = c(block1, block2, block3)
 #' @param cent.scale a logical value indicating if the blocks should be scaled using the normalised centroid size method adapted from \code{geomorph::combine.subsets}. Default value \code{TRUE}.
 #'
 #' @details The block data is scaled using the normalised centroid size method from Profico et al. (2019) and Collyer et al. (2020) if \code{cent.scale = TRUE}. Dimensions of the blocks are retained for downstream analyses. \code{combineBlocks} adapts the normalised centroid size method from the \code{combine.subsets} function in the \code{geomorph} package (Adams and Ot?rola-Castillo 2013).
@@ -23,7 +23,7 @@
 #' combineBlocks(blocks = c(block1, block2))
 #'
 #' @export
-combineBlocks <- function(blocks = c(...), cent.scale = TRUE) {
+combineBlocks <- function(blocks, cent.scale = TRUE) {
   p <- c()
   k <- c()
   n <- c()
@@ -77,14 +77,14 @@ combineBlocks <- function(blocks = c(...), cent.scale = TRUE) {
     for (i in 1:J) {
       block.list[[i]] <- block.norm[[i]]
     }
-    block.list[[J + 1]] <- do.call(cbind, block.norm)
+    block.list[[J + 1]] <- do.call(cbind, block.list)
     names(block.list) <- c(paste(rep("block_"), LETTERS[1:J], sep = ""), "superblock")
   } else {
     J <- length(blocks)
     for (i in 1:J) {
       block.list[[i]] <- blocks[[i]]@gpa.2D
     }
-    block.list[[J + 1]] <- do.call(cbind, block.format)
+    block.list[[J + 1]] <- do.call(cbind, block.list)
     names(block.list) <- c(paste(rep("block_"), LETTERS[1:J], sep = ""), "superblock")
   }
 
