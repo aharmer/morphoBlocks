@@ -4,10 +4,10 @@
 \alias{combineBlocks}
 \title{Combine and scale blocks of shape configuration data}
 \usage{
-combineBlocks(blocks = c(...), cent.scale = TRUE)
+combineBlocks(blocks, cent.scale = TRUE)
 }
 \arguments{
-\item{blocks}{list of 'block' objects produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions.}
+\item{blocks}{vector of 'block' object names produced by the \code{dodecBlock}, \code{formatBlock}, \code{readPts} or \code{readGPSA} functions. e.g. blocks = c(block1, block2, block3)}
 
 \item{cent.scale}{a logical value indicating if the blocks should be scaled using the normalised centroid size method adapted from \code{geomorph::combine.subsets}. Default value \code{TRUE}.}
 }

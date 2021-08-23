@@ -25,7 +25,10 @@
 #' result2 <- analyseBlocks(blocklist, option = "pca", ncomp = 10)
 #' scoresPlot(result1)
 #' dev.off()
-#' scoresPlot(result2, comp = c(2, 3), pcol = colorRampPalette(c(rgb(1, 0.7, 0, 1), rgb(0, 0, 1, 1)), alpha = TRUE)(result2$n[1]))
+#' scoresPlot(result2,
+#'   comp = c(2, 3),
+#'   pcol = colorRampPalette(c(rgb(1, 0.7, 0, 1), rgb(0, 0, 1, 1)),
+#'   alpha = TRUE)(result2$n[1]))
 #'
 #' @importFrom graphics layout text title
 #' @importFrom grDevices rgb

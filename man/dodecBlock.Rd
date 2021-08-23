@@ -61,7 +61,9 @@ Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedro
 # Example 1: Generate a block with ten configurations
 block <- dodecBlock()
 
-# Example 2: Generate a block with five configurations. Rotate the configurations and translate the first vertex in each configuration. Plot the result.
+# Example 2: Generate a block with five configurations.
+# Rotate the configurations and translate the first vertex in each configuration.
+# Plot the result.
 block2 <- dodecBlock(n = 5, theta_z = seq(from = 0, to = 270, by = 60), vertex_shift = 0:4, plot = TRUE)
 
 }
