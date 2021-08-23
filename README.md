@@ -42,7 +42,7 @@ For example usage with real world data:
 vignette("pengiunWings")
 ```
 
-Or to compare the performance of regularised consensus principal component analysis (RCPCA) with traditional principalcomponents analysis(PCA):
+Or to compare the performance of regularised consensus principal component analysis (RCPCA) with traditional principal components analysis (PCA):
 
 ``` r
 vignette("morphoBlocksMethods")
