@@ -6,7 +6,7 @@ The 'morphoBlocks' package provides a workflow for constructing a multiple-part 
 
 <br />  
 
-![](https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png?raw=true)
+![](https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png?raw=true){width=75%}
 
 <br />  
 
@@ -22,7 +22,7 @@ Installation
 
 #### morphoBlocks
 
-You can install `morphoBlocks` directly within \R using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
+You can install `morphoBlocks` directly within *R* using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
 
 ``` r
 install_github("aharmer/morphoBlocks", build_vignettes = TRUE)
