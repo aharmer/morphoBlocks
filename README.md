@@ -34,3 +34,20 @@ Depending on your setup, you may also need to install *Rtools* first. If you nee
 How to use morphoBlocks
 ---------------------
 
+Detailed usage examples of `morphoBlocks` can be retrieved using the `vignette` function.
+
+For example usage with real world data:
+
+``` r
+vignette("pengiunWings")
+```
+
+Or to compare the performance of regularised consensus principal component analysis (RCPCA) with traditional principalcomponents analysis(PCA):
+
+``` r
+vignette("morphoBlocksMethods")
+```
+
+<br /> 
+<br /> 
+<br /> 
