@@ -6,7 +6,7 @@ The 'morphoBlocks' package provides a workflow for constructing a multiple-part 
 
 <br />  
 
-![](https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png?raw=true){width=75%}
+<img src="https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png" width="700" style="display: block; margin: auto;" />
 
 <br />  
 
