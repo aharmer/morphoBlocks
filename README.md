@@ -1,9 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-
 Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
 --------
 
