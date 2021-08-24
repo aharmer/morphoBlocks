@@ -1,5 +1,10 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
 
-Overview
+Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
 --------
 
 The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
@@ -48,6 +53,8 @@ Or to compare the performance of regularised consensus principal component analy
 vignette("morphoBlocksMethods")
 ```
 
+How to cite
+---------------------
 <br /> 
 <br /> 
 <br /> 
