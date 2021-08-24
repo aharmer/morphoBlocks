@@ -131,24 +131,24 @@ knitr::kable(dat, caption = "Table 1. 3D digital replicas produced from bones of
   kableExtra::kable_classic(full_width = FALSE) %>%
   kableExtra::column_spec(2:3, italic = TRUE) %>%
   kableExtra::row_spec(0, bold = TRUE) %>%
-  kableExtra::footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
+  kableExtra::footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand. NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand. OM, Otago Museum, Dunedin, New Zealand. UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
 ```
 
 &nbsp;
 
 References
 --------
-* Adams, D. C., Otarola-Castillo, E. (2013). Geomorph: An R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393–399. https://doi.org/10.1111/2041-210x.12035
+* Adams, D. C., Otarola-Castillo, E. (2013). Geomorph: An R package for the collection and analysis of geometric morphometric shape data. Methods in Ecology and Evolution, 4, 393-399. https://doi.org/10.1111/2041-210x.12035
 
 * Collyer, M. L., Davis, M. A., Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. https://doi.org/10.1007/s11692-020-09503-z
 
-* Ksepka, D. T., Ando, T. (2011). Penguins past, present, and future: Trends in the evolution of the Sphenisciformes. In G. Dyke, G. Kaiser (Ed.), Living  Dinosaurs: The Evolutionary History of Modern Birds, First Edition (pp. 155–186). John Wiley and Sons.
+* Ksepka, D. T., Ando, T. (2011). Penguins past, present, and future: Trends in the evolution of the Sphenisciformes. In G. Dyke, G. Kaiser (Ed.), Living  Dinosaurs: The Evolutionary History of Modern Birds, First Edition (pp. 155-186). John Wiley and Sons.
 
-* Ksepka, D. T., Fordyce, R. E., Ando, T., Jones, C. M. (2012). New fossil penguins (Aves, Sphenisciformes) from the Oligocene of New Zealand reveal the skeletal plan of stem penguins. Journal of Vertebrate Paleontology, 32, 235–254. https://doi.org/10.1080/02724634.2012.652051
+* Ksepka, D. T., Fordyce, R. E., Ando, T., Jones, C. M. (2012). New fossil penguins (Aves, Sphenisciformes) from the Oligocene of New Zealand reveal the skeletal plan of stem penguins. Journal of Vertebrate Paleontology, 32, 235-254. https://doi.org/10.1080/02724634.2012.652051
 
-* Schlager, S. (2017). Morpho and Rvcg – Shape Analysis in R. In G. Zheng, S. Li and G. Székely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.
+* Schlager, S. (2017). Morpho and Rvcg - Shape Analysis in R. In G. Zheng, S. Li and G. Szekely (Ed.), Statistical shape and deformation analysis (pp. 217-256). Academic Press.
 
-* Slack, K. E., Jones, C. M., Ando, T., Harrison, G. L., Fordyce, R. E., Arnason, U., Penny, D. (2006). Early penguin fossils, plus mitochondrial genomes, calibrate avian evolution. Molecular Biology and Evolution, 23, 1144–1155. https://doi.org/10.1093/molbev/msj124
+* Slack, K. E., Jones, C. M., Ando, T., Harrison, G. L., Fordyce, R. E., Arnason, U., Penny, D. (2006). Early penguin fossils, plus mitochondrial genomes, calibrate avian evolution. Molecular Biology and Evolution, 23, 1144-1155. https://doi.org/10.1093/molbev/msj124
 
 * Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
 
