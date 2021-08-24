@@ -20,7 +20,7 @@ The `analyseBlocks` function is applied to an object of class "blockList" produc
 
 <br />  
 
-<img src="https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png" width="700" style="display: block; margin: auto;" />
+<img src="https://github.com/aharmer/morphoBlocks/blob/main/man/figures/morphoBlocks_blockbones.png" width="500" style="display: block; margin: auto;" />
 
 <br />  
 
