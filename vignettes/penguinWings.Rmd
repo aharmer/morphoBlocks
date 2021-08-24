@@ -10,6 +10,7 @@ output:
     fig_caption: true
 vignette: >
   %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
+  %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteDepends{here}
   %\VignetteDepends{kableExtra}
