@@ -1,5 +1,3 @@
-Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
---------
 
 <!-- badges: start -->
 
@@ -10,7 +8,15 @@ Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" 
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
 <!-- badges: end -->
 
-The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
+Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
+--------
+
+<br /> 
+<br /> 
+
+The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.  
+<br /> 
+The `analyseBlocks` function is applied to an object of class "blockList" produced by the `combineBlocks` function and has two options: 1) `option = "rcpca"` and 2) `option = "pca"`. The `option = "rcpca"` will perform regularised consensus principal component analysis using the `rgcca` function from the RGCCA package (Tenenhaus and Guillemot 2017), and is the default option for `analyseBlocks`. The `rgcca` function itself has many options that each perform a different type of analysis. The `analyseBlocks` function specifically calls the regularised consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). The `option = "pca"` will perform principal component analysis on the superblock item in the block list using the `prcomp` function from the `stats` package in R.
 
 <br />  
 
@@ -58,6 +64,14 @@ vignette("morphoBlocksMethods")
 
 How to cite
 ---------------------
+
+References
+----------
+
+Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA. 
+
+Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+
 <br /> 
 <br /> 
 <br /> 
