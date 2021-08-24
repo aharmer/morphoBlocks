@@ -15,6 +15,7 @@ LazyData: true
 Imports: 
   adephylo,
   data.table,
+  formatR,
   geomorph,
   graphics,
   grDevices,
