@@ -172,7 +172,7 @@ scoresPlot(result.pca, comp = c(2, 3), plabels = 1:10)
 Regularised consensus principal component analysis of scaled dataset
 --------
 
-Regularised consensus principal component analysis (mode 2) is performed on the block list using `analyeBlocks` with `option = "rcpca"`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus & Guillemot, 2017). 
+Regularised consensus principal component analysis (mode 2) is performed on the block list using `analyseBlocks` with `option = "rcpca"`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus and Guillemot, 2017). 
 
 ``` {r}
 # Analyse block list
@@ -181,7 +181,7 @@ result.rcpca <- analyseBlocks(block.list, option = "rcpca", ncomp = 20)
 
 &nbsp;
 
-The proportion of variancein the dataset explained by a component calculated with RCPCA is presented as an average explained variance value, and is related to explained variance from PCA but is not identical (Tenenhaus & Guillemot, 2017). The proportion for variance in the dataset explained by the first three global components (GCs) from the RCPCA are 0.71, 0.17 and 0.03.
+The proportion of variancein the dataset explained by a component calculated with RCPCA is presented as an average explained variance value, and is related to explained variance from PCA but is not identical (Tenenhaus and Guillemot, 2017). The proportion for variance in the dataset explained by the first three global components (GCs) from the RCPCA are 0.71, 0.17 and 0.03.
 
 ``` {r}
 # Average variance explained for the consensus space of the RCPCA
@@ -232,9 +232,9 @@ Principal component analysis on scaled and combined data blocks (i.e. `analyseBl
 
 References
 --------
-* Collyer, M. L., Davis, M. A. & Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. https://doi.org/10.1007/s11692-020-09503-z
+* Collyer, M. L., Davis, M. A., Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. https://doi.org/10.1007/s11692-020-09503-z
 
-* Tenenhaus, A. & Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+* Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
 
 &nbsp;
 &nbsp;
