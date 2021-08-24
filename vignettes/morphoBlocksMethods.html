@@ -12,7 +12,7 @@
 
 <meta name="author" content="Daniel B. Thomas" />
 
-<meta name="date" content="2021-08-23" />
+<meta name="date" content="2021-08-24" />
 
 <title>Comparison between PCA and RCPCA using simulated data</title>
 
@@ -143,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <h1 class="title toc-ignore">Comparison between PCA and RCPCA using simulated data</h1>
 <h4 class="author">Daniel B. Thomas</h4>
-<h4 class="date">2021-08-23</h4>
+<h4 class="date">2021-08-24</h4>
 
 
 <div id="TOC">
@@ -1025,11 +1025,11 @@ Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and
 </div>
 <div id="regularised-consensus-principal-component-analysis-of-scaled-dataset" class="section level2">
 <h2>Regularised consensus principal component analysis of scaled dataset</h2>
-<p>Regularised consensus principal component analysis (mode 2) is performed on the block list using <code>analyeBlocks</code> with <code>option = &quot;rcpca&quot;</code>, which calls <code>rgcca</code> from the Regularized Generalized Canonical Correlation Analysis package (<code>RGCCA</code>, Tenenhaus &amp; Guillemot, 2017).</p>
+<p>Regularised consensus principal component analysis (mode 2) is performed on the block list using <code>analyseBlocks</code> with <code>option = &quot;rcpca&quot;</code>, which calls <code>rgcca</code> from the Regularized Generalized Canonical Correlation Analysis package (<code>RGCCA</code>, Tenenhaus and Guillemot, 2017).</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analyse block list</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>result.rcpca <span class="ot">&lt;-</span> <span class="fu">analyseBlocks</span>(block.list, <span class="at">option =</span> <span class="st">&quot;rcpca&quot;</span>, <span class="at">ncomp =</span> <span class="dv">20</span>)</span></code></pre></div>
 <p> </p>
-<p>The proportion of variancein the dataset explained by a component calculated with RCPCA is presented as an average explained variance value, and is related to explained variance from PCA but is not identical (Tenenhaus &amp; Guillemot, 2017). The proportion for variance in the dataset explained by the first three global components (GCs) from the RCPCA are 0.71, 0.17 and 0.03.</p>
+<p>The proportion of variancein the dataset explained by a component calculated with RCPCA is presented as an average explained variance value, and is related to explained variance from PCA but is not identical (Tenenhaus and Guillemot, 2017). The proportion for variance in the dataset explained by the first three global components (GCs) from the RCPCA are 0.71, 0.17 and 0.03.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Average variance explained for the consensus space of the RCPCA</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>result.rcpca<span class="sc">$</span>result<span class="sc">$</span>AVE[[<span class="dv">1</span>]][[<span class="dv">11</span>]]</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt;      comp1      comp2      comp3      comp4      comp5      comp6      comp7 </span></span>
@@ -1080,8 +1080,8 @@ Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 
 <div id="references" class="section level2">
 <h2>References</h2>
 <ul>
-<li><p>Collyer, M. L., Davis, M. A. &amp; Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. <a href="https://doi.org/10.1007/s11692-020-09503-z" class="uri">https://doi.org/10.1007/s11692-020-09503-z</a></p></li>
-<li><p>Tenenhaus, A. &amp; Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. <a href="https://CRAN.R-project.org/package=RGCCA" class="uri">https://CRAN.R-project.org/package=RGCCA</a>.</p></li>
+<li><p>Collyer, M. L., Davis, M. A., Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. <a href="https://doi.org/10.1007/s11692-020-09503-z" class="uri">https://doi.org/10.1007/s11692-020-09503-z</a></p></li>
+<li><p>Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. <a href="https://CRAN.R-project.org/package=RGCCA" class="uri">https://CRAN.R-project.org/package=RGCCA</a>.</p></li>
 </ul>
 <p>   </p>
 </div>

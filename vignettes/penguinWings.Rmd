@@ -4,7 +4,6 @@ author: "Daniel B. Thomas"
 date: "`r Sys.Date()`"
 output: 
   html_vignette: 
-    encoding: UTF-8
     toc: true
     fig_width: 6.5
     fig_height: 5.5
