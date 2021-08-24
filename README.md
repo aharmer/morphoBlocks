@@ -1,6 +1,15 @@
 Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
 --------
 
+<!-- badges: start -->
+
+[![R-CMD-check](https://github.com/aharmer/morphoBlocks/workflows/R-CMD-check/badge.svg)](https://github.com/aharmer/morphoBlocks/actions)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![morphoBlocks badge](https://img.shields.io/badge/morphoBlocks-ready%20to%20use-brightgreen)](https://github.com/aharmer/morphoBlocks)
+[![R badge](https://img.shields.io/badge/Build%20with-♥%20and%20R-blue)](https://github.com/aharmer/morphoBlocks)
+[![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+<!-- badges: end -->
+
 The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
 
 <br />  
