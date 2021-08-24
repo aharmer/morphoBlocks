@@ -31,6 +31,5 @@ Suggests:
     knitr,
     kableExtra,
     rmarkdown,
-    here,
-    markdown
+    here
 VignetteBuilder: knitr
