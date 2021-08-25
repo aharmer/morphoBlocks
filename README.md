@@ -33,7 +33,7 @@ This is the original release of the package.
 Installation
 ------------
 
-You can install `morphoBlocks` directly within *R* using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
+You can install `morphoBlocks` directly within R using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
 
 To install with vignettes:
 ``` r
@@ -45,8 +45,9 @@ OR if you do not wish to install the vignettes:
 devtools::install_github("aharmer/morphoBlocks")
 ```
 
+**Note:** If you are using RStudio, the above installation methods should work without issue as RStudio is bundled with Pandoc. However, if you are using the R native GUI, you will need to have [Pandoc](https://pandoc.org/) installed if you wish to build the vignettes.
 
-Depending on your setup, you may also need to install *Rtools* first. If you need *Rtools* you will get an error message during `morphoBlocks` installation. Just install *Rtools* then reinstall `morphoBlocks`.
+Depending on your setup, you may also need to install Rtools first. If you need Rtools you will get an error message during `morphoBlocks` installation. Just install Rtools then reinstall `morphoBlocks`.
 
 
 How to use morphoBlocks
