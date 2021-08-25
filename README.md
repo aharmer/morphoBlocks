@@ -33,13 +33,18 @@ This is the original release of the package.
 Installation
 ------------
 
-#### morphoBlocks
-
 You can install `morphoBlocks` directly within *R* using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
 
+To install with vignettes:
 ``` r
-install_github("aharmer/morphoBlocks", build_vignettes = TRUE)
+devtools::install_github("aharmer/morphoBlocks", build_vignettes = TRUE, dependencies = TRUE)
 ```
+
+OR if you do not wish to install the vignettes:
+``` r
+devtools::install_github("aharmer/morphoBlocks")
+```
+
 
 Depending on your setup, you may also need to install *Rtools* first. If you need *Rtools* you will get an error message during `morphoBlocks` installation. Just install *Rtools* then reinstall `morphoBlocks`.
 
