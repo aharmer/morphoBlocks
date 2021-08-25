@@ -52,7 +52,7 @@ Detailed usage examples of `morphoBlocks` can be retrieved using the `vignette` 
 For example usage with real world data:
 
 ``` r
-vignette("pengiunWings")
+vignette("penguinWings")
 ```
 
 Or to compare the performance of regularised consensus principal component analysis (RCPCA) with traditional principal components analysis (PCA):

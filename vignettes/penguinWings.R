@@ -61,5 +61,5 @@ knitr::kable(dat, caption = "Table 1. 3D digital replicas produced from bones of
   kableExtra::kable_classic(full_width = FALSE) %>%
   kableExtra::column_spec(2:3, italic = TRUE) %>%
   kableExtra::row_spec(0, bold = TRUE) %>%
-  kableExtra::footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand; NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand; OM, Otago Museum, Dunedin, New Zealand, New Zealand; UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
+  kableExtra::footnote("Institution abbreviations: CM, Canterbury Museum, Christchurch, New Zealand. NMNZ, Museum of New Zealand Te Papa Tongarewa, Wellington, New Zealand. OM, Otago Museum, Dunedin, New Zealand. UC, University of Canterbury, Christchurch, New Zealand (specimen held at OU, Geology Museum, University of Otago, Dunedin, New Zealand). Specimen ages from or compiled by Slack et al. (2006), Ksepka and Ando (2011), and Ksepka et al. (2012) and literature reviewed therein.")
 
