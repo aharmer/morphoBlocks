@@ -33,7 +33,7 @@ This is the original release of the package.
 Installation
 ------------
 
-You can install `morphoBlocks` directly within R using the `install_github()` function from the [`devtools`](https://www.rstudio.com/products/rpackages/devtools/) package:
+You can install `morphoBlocks` directly within R using the `install_github()` function from the [`devtools`](https://www.r-project.org/nosvn/pandoc/devtools.html) package:
 
 To install with vignettes:
 ``` r
