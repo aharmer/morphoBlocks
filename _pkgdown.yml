@@ -1,0 +1,24 @@
+navbar:
+  title: morphoBlocks
+  type: default
+  left:
+  - text: Get Started
+    href: index.html
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    menu:
+    - text: Comparison between PCA and RCPCA using simulated data
+      href: articles/morphoBlocksMethods.html
+    - text: Constructing a morphospace for a partial-wing skeleton
+      href: articles/penguinWings.html
+  - text: Downloads
+    menu:
+    - text: PDF manual
+      href: downloads/morphoBlocks.pdf
+  - icon: fa-github fa-lg
+    href: https://github.com/aharmer/morphoBlocks
+
+authors:
+  Aaron Harmer:
+    href: "https://www.harmerlab.com/"

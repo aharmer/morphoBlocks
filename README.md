@@ -1,13 +1,16 @@
 
+# morphoBlocks <img src='man/figures/logo.png' align="right" height="139" />
+
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/aharmer/morphoBlocks/workflows/R-CMD-check/badge.svg)](https://github.com/aharmer/morphoBlocks/actions)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![morphoBlocks badge](https://img.shields.io/badge/morphoBlocks-ready%20to%20use-brightgreen)](https://github.com/aharmer/morphoBlocks)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
+[![Github all releases](https://img.shields.io/github/downloads/Naereen/StrapDown.js/total.svg)](https://github.com/aharmer/morphoBlocks/releases)
 <!-- badges: end -->
 
-Overview <img src='man/figures/hex-morphoBlocks.png' align="right" height="139" />
+Overview 
 --------
 
 <br /> 
@@ -33,7 +36,7 @@ This is the original release of the package.
 Installation
 ------------
 
-You can install `morphoBlocks` directly within R using the `install_github()` function from the [`devtools`](https://www.r-project.org/nosvn/pandoc/devtools.html) package:
+You can install `morphoBlocks` directly within R using the `install_github()` function from the [`devtools`](https://cran.r-project.org/web/packages/devtools/index.html) package:
 
 To install with vignettes:
 ``` r

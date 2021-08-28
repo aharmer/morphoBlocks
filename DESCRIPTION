@@ -2,10 +2,11 @@ Package: morphoBlocks
 Type: Package
 Title: Constructing a Multiple-Part Morphospace Using a Multiple-Block Method
 Version: 0.1.0
-Author: as.person(c(
-    "Daniel Thomas <d.b.thomas@massey.ac.nz> [aut, cre]",
-    "Aaron Harmer <a.harmer@massey.ac.nz> [aut]"
-  ))
+Author: as.person(c
+Authors@R: c(
+    person("Daniel", "Thomas", role = c("aut", "cre")),
+    person("Aaron", "Harmer", role = c("aut", "cre"))
+    )
 Maintainer: Daniel Thomas <d.b.thomas@massey.ac.nz>
 Description: The 'morphoBlocks' package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
 Depends: R (>= 3.5.0)

@@ -31,7 +31,7 @@ The block data is scaled using the normalised centroid size method from Profico 
 \examples{
 block1 <- dodecBlock()
 block2 <- dodecBlock()
-combineBlocks(blocks = c(block1, block2))
+block.list <- combineBlocks(blocks = c(block1, block2))
 
 }
 \references{
