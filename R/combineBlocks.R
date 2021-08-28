@@ -20,7 +20,7 @@
 #' @examples
 #' block1 <- dodecBlock()
 #' block2 <- dodecBlock()
-#' combineBlocks(blocks = c(block1, block2))
+#' block.list <- combineBlocks(blocks = c(block1, block2))
 #'
 #' @export
 combineBlocks <- function(blocks, cent.scale = TRUE) {
