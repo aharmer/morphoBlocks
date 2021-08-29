@@ -12,7 +12,6 @@ vignette: >
   %\VignetteIndexEntry{Comparison between PCA and RCPCA using simulated data}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteDepends{here}
   %\VignetteDepends{kableExtra}
 ---
 
@@ -24,7 +23,6 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 library(kableExtra)
-library(here)
 ```
 
 &nbsp;
@@ -148,15 +146,13 @@ loadingsPlot(result.pca, comp = 1, cex.3d = 10)
 loadingsPlot(result.pca, comp = 2, cex.3d = 10)
 ```
 
-```{r echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%", fig.cap = "Figure 1. Component one loadings from a principal component analysis of simulated shape data. Beginning top left and reading right and down, each group of shows mean position of landmarks in each data block. Orange represents points that have larger loadings and blue represents points that have smaller loadings."}
-knitr::include_graphics(here::here("man/figures", "loadingsPlotExample02.png"))
-```
+![](../man/figures/loadingsPlotExample02.png)
+Figure 1. Component one loadings from a principal component analysis of simulated shape data. Beginning top left and reading right and down, each group of shows mean position of landmarks in each data block. Orange represents points that have larger loadings and blue represents points that have smaller loadings.
 
 &nbsp;
 
-```{r echo = FALSE, loadingsPlot02, fig.align = "center", out.width = "90%", fig.cap = "Figure 2. Component two loadings from a principal component analysis of simulated shape data. See Figure 1 for key."}
-knitr::include_graphics(here::here("man/figures", "loadingsPlotExample03.png"))
-```
+![](../man/figures/loadingsPlotExample03.png)
+Figure 2. Component two loadings from a principal component analysis of simulated hape data. See Figure 1 for key.
 
 &nbsp;
 
@@ -200,15 +196,14 @@ loadingsPlot(result.rcpca, comp = 1, cex.3d = 10)
 loadingsPlot(result.rcpca, comp = 2, cex.3d = 10)
 ```
 
-```{r echo = FALSE, loadingsPlot03, fig.align = "center", out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
-knitr::include_graphics(here::here("man/figures", "loadingsPlotExample04.png"))
-```
+
+![](../man/figures/loadingsPlotExample04.png)
+Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key.
 
 &nbsp;
 
-```{r echo = FALSE, loadingsPlot04, fig.align = "center", out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."}
-knitr::include_graphics(here::here("man/figures", "loadingsPlotExample05.png"))
-```
+![](../man/figures/loadingsPlotExample05.png)
+Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key.
 
 &nbsp;
 

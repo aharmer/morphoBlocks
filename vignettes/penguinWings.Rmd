@@ -12,7 +12,6 @@ vignette: >
   %\VignetteIndexEntry{Constructing a morphospace for a partial-wing skeleton}
   %\VignetteEncoding{UTF-8}
   %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteDepends{here}
   %\VignetteDepends{kableExtra}
 ---
 
@@ -24,7 +23,6 @@ knitr::opts_chunk$set(
   tidy = TRUE
 )
 library(kableExtra)
-library(here)
 ```
 
 &nbsp;
@@ -115,9 +113,8 @@ Use `loadingsPlot` to show the loadings for global component one of the analysis
 loadingsPlot(result, cex.3d = 15)
 ```
 
-```{r echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%"}
-knitr::include_graphics(here::here("man/figures", "loadingsPlotExample01.png"))
-```
+
+![](../man/figures/loadingsPlotExample01.png)
 
 &nbsp;
 &nbsp;
