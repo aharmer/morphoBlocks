@@ -100,10 +100,10 @@ result.rcpca$result$AVE[[1]][[11]]
 #  # Figure 5
 #  loadingsPlot(result.rcpca, comp = 2, cex.3d = 10)
 
-## ----echo = FALSE, loadingsPlot03, fig.align = "center", out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."----
+## ----echo = FALSE, loadingsPlot03, fig.align = "center", out.width = "90%", fig.cap = "Figure 4. Global component one loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key."----
 knitr::include_graphics(here::here("man/figures", "loadingsPlotExample04.png"))
 
-## ----echo = FALSE, loadingsPlot04, fig.align = "center", out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularised consensus principal component analysis of simulated shape data. See Figure 1 for key."----
+## ----echo = FALSE, loadingsPlot04, fig.align = "center", out.width = "90%", fig.cap = "Figure 5. Global component two loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key."----
 knitr::include_graphics(here::here("man/figures", "loadingsPlotExample05.png"))
 
 ## ----fig.align = "center", out.width = "90%", fig.height = 4, fig.cap = "Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 and GC3 score values (right), for the dataset comprised of ten blocks that were scaled, transformed and combined. Samples numbers shown with labels."----

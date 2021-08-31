@@ -51,10 +51,10 @@ a 'blockList' object of \emph{n} dodecahedra, used for downstream analyses. The 
 \item{n}{number of configurations included in each data block}
 }
 \description{
-Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedron represent a landmark configuration with \emph{p = 20} points in \emph{k = 3} dimensions. The data block is transformed using generalised Procrustes analysis.
+Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedron represent a landmark configuration with \emph{p = 20} points in \emph{k = 3} dimensions. The data block is transformed using generalized Procrustes analysis.
 }
 \details{
-\code{dodecBlock} builds a data block of configurations that have been transformed using generalised Procrustes analysis. The resulting data block is a three dimensional array with \emph{n = 2} or greater configurations, with each configuration represented by \emph{p = 20} points that have \emph{k = 3} dimensions. Several objects are calculated for downstream analyses including centroid sizes for each configuration.
+\code{dodecBlock} builds a data block of configurations that have been transformed using generalized Procrustes analysis. The resulting data block is a three dimensional array with \emph{n = 2} or greater configurations, with each configuration represented by \emph{p = 20} points that have \emph{k = 3} dimensions. Several objects are calculated for downstream analyses including centroid sizes for each configuration.
 \code{formatBlock} uses the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Ot?rola-Castillo 2013).
 }
 \examples{

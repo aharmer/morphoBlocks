@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Analyse a list of data blocks containing shape information — analyseBlocks" />
-<meta property="og:description" content="Performs either regularised consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks." />
+<meta property="og:description" content="Performs either regularized consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -147,7 +147,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Performs either regularised consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks.</p>
+    <p>Performs either regularized consensus principal component analysis on a list of data blocks containing shape information, or performs principal component analysis on a superblock produced by the column-wise concatenation of the individual data blocks.</p>
     </div>
 
     <pre class="usage"><span class='fu'>analyseBlocks</span><span class='op'>(</span><span class='va'>blockList</span>, option <span class='op'>=</span> <span class='st'>"rcpca"</span>, ncomp <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span></pre>
@@ -161,7 +161,7 @@
     </tr>
     <tr>
       <th>option</th>
-      <td><p>either <code>option = "rcpca"</code> (default) for regularised consensus principal component analysis in mode 2 applied to the entire block list, or <code>option = "pca"</code> for principal component analysis applied to the superblock item in the block list.</p></td>
+      <td><p>either <code>option = "rcpca"</code> (default) for regularized consensus principal component analysis in mode 2 applied to the entire block list, or <code>option = "pca"</code> for principal component analysis applied to the superblock item in the block list.</p></td>
     </tr>
     <tr>
       <th>ncomp</th>
@@ -171,8 +171,8 @@
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A list object containing output from the regularised consensus principal component analysis or principal component analysis. The list contains the elements:</p>
-<dt>result</dt><dd><p>output from the regularised consensus principal component analysis in mode 2 produced by the <code>rgcca</code> function from the <code>RGCCA</code> package, or output from principal component analysis produced by the <code>prcomp</code> function in <code>base</code> <span style="R">R</span>.</p></dd>
+    <p>A list object containing output from the regularized consensus principal component analysis or principal component analysis. The list contains the elements:</p>
+<dt>result</dt><dd><p>output from the regularized consensus principal component analysis in mode 2 produced by the <code>rgcca</code> function from the <code>RGCCA</code> package, or output from principal component analysis produced by the <code>prcomp</code> function in <code>base</code> <span style="R">R</span>.</p></dd>
 
 <dt>option</dt><dd><p>either "rcpca" or "pca".</p></dd>
 
@@ -190,7 +190,7 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>analyseBlocks</code> is applied to an object of class "blockList" produced by the <code>combineBlocks</code> function and has two options: 1) <code>option = "rcpca"</code> and 2) <code>option = "pca"</code>. The <code>option = "rcpca"</code> will perform regularised consensus principal component analysis using the <code>rgcca</code> function from the <code>RGCCA</code> package (Tenenhaus and Guillemot 2017), and is the default option for <code>analyseBlocks</code>. The <code>rgcca</code> function itself has many options that each perform a different type of analysis. Here the <code>analyseBlocks</code> function is specifically calling the regularised consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). <code>option = "pca"</code> will perform principal component analysis on the superblock item in the block list using the <code>prcomp</code> function from <code>base</code> <span style="R">R</span>.</p>
+    <p><code>analyseBlocks</code> is applied to an object of class "blockList" produced by the <code>combineBlocks</code> function and has two options: 1) <code>option = "rcpca"</code> and 2) <code>option = "pca"</code>. The <code>option = "rcpca"</code> will perform regularized consensus principal component analysis using the <code>rgcca</code> function from the <code>RGCCA</code> package (Tenenhaus and Guillemot 2017), and is the default option for <code>analyseBlocks</code>. The <code>rgcca</code> function itself has many options that each perform a different type of analysis. Here the <code>analyseBlocks</code> function is specifically calling the regularized consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). <code>option = "pca"</code> will perform principal component analysis on the superblock item in the block list using the <code>prcomp</code> function from <code>base</code> <span style="R">R</span>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.</p>

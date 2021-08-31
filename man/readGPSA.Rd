@@ -7,7 +7,7 @@
 readGPSA(dirpath)
 }
 \arguments{
-\item{dirpath}{the directory path where a file containing homologised pseudolandmark points will be found. The homologised points file will have a .dat extension and must be produced using the Generalised Procrustes Surface Analysis software tool (Pomidor et al. 2015).}
+\item{dirpath}{the directory path where a file containing homologised pseudolandmark points will be found. The homologised points file will have a .dat extension and must be produced using the Generalized Procrustes Surface Analysis software tool (Pomidor et al. 2015).}
 }
 \value{
 a 'block' class object, used for downstream analyses. The list contains the elements:
@@ -27,7 +27,7 @@ a 'block' class object, used for downstream analyses. The list contains the elem
 \item{n}{number of pseudolandmark configurations included in the data block}
 }
 \description{
-Reads and organises pseudolandmarks from Generalised Procrustes Surface Analysis (GPSA; Pomidor et al. 2015) into a data block. \code{readGPSA} expects a directory containing a single .dat file containing homologised points for one block of pseudolandmark configurations.
+Reads and organises pseudolandmarks from Generalized Procrustes Surface Analysis (GPSA; Pomidor et al. 2015) into a data block. \code{readGPSA} expects a directory containing a single .dat file containing homologised points for one block of pseudolandmark configurations.
 }
 \details{
 \code{readGPSA} reads a matrix of pseudolandmark configurations from a .dat file into the \R environment and organises the configurations into an array. Several objects are calculated for downstream analyses including centroid sizes for each pseudolandmark configuration. Note that centroid sizes are not calculated for the original meshes processed using GPSA, but are instead calculated for the homologised pseudolandmark points from each of those meshes after processing with GPSA.

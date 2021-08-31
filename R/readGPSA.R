@@ -1,8 +1,8 @@
 #' @title Read pseudolandmarks into a data block
 #'
-#' @description Reads and organises pseudolandmarks from Generalised Procrustes Surface Analysis (GPSA; Pomidor et al. 2015) into a data block. \code{readGPSA} expects a directory containing a single .dat file containing homologised points for one block of pseudolandmark configurations.
+#' @description Reads and organises pseudolandmarks from Generalized Procrustes Surface Analysis (GPSA; Pomidor et al. 2015) into a data block. \code{readGPSA} expects a directory containing a single .dat file containing homologised points for one block of pseudolandmark configurations.
 #'
-#' @param dirpath the directory path where a file containing homologised pseudolandmark points will be found. The homologised points file will have a .dat extension and must be produced using the Generalised Procrustes Surface Analysis software tool (Pomidor et al. 2015).
+#' @param dirpath the directory path where a file containing homologised pseudolandmark points will be found. The homologised points file will have a .dat extension and must be produced using the Generalized Procrustes Surface Analysis software tool (Pomidor et al. 2015).
 #'
 #' @details \code{readGPSA} reads a matrix of pseudolandmark configurations from a .dat file into the \R environment and organises the configurations into an array. Several objects are calculated for downstream analyses including centroid sizes for each pseudolandmark configuration. Note that centroid sizes are not calculated for the original meshes processed using GPSA, but are instead calculated for the homologised pseudolandmark points from each of those meshes after processing with GPSA.
 #' \code{readGPSA} is a wrapper function for the \code{fread} function from the \code{data.table} package (Dowle and Srinivasan 2020), the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{arrayspecs} function from the \code{geomorph} package (Adams and Otárola-Castillo 2013).

@@ -21,7 +21,7 @@ scoresPlot(
 
 \item{plabels}{optional user-supplied vector of labels for labelling points in scores plot.}
 
-\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularised consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
+\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularized consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
 }
 \value{
 a two-dimensional scatterplot

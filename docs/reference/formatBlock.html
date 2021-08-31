@@ -47,7 +47,7 @@
 
 
 <meta property="og:title" content="Format configurations into a data block — formatBlock" />
-<meta property="og:description" content="Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. formatBlock is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016)." />
+<meta property="og:description" content="Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. formatBlock is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalized Procrustes Surface Analysis (Pomidor et al. 2016)." />
 <meta property="og:image" content="/logo.png" />
 
 
@@ -147,7 +147,7 @@
     </div>
 
     <div class="ref-description">
-    <p>Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. <code>formatBlock</code> is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016).</p>
+    <p>Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. <code>formatBlock</code> is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalized Procrustes Surface Analysis (Pomidor et al. 2016).</p>
     </div>
 
     <pre class="usage"><span class='fu'>formatBlock</span><span class='op'>(</span>
@@ -184,7 +184,7 @@
     </tr>
     <tr>
       <th>gpa</th>
-      <td><p>a logical value indicating whether generalised Procrustes analyses should be performed. Default is <code>TRUE</code>.</p></td>
+      <td><p>a logical value indicating whether generalized Procrustes analyses should be performed. Default is <code>TRUE</code>.</p></td>
     </tr>
     </table>
 
@@ -208,7 +208,7 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>formatBlock</code> expects configurations to be presented as either a two-dimensional matrix or a three-dimensional array. If data are presented as a two-dimensional matrix then the number of <em>k</em> dimensions for the landmarks (or pseudolandmarks) must be specified (default <code>k = 2</code>), each configuration should be a separate row in the matrix, and columns should contain corresponding points and dimensions in each configuration. If data are presented as a three-dimensional array then each of the <em>n</em> configurations should be a separate matrix in the array (i.e. <code>array[p, k, n]</code>), and each matrix should have the same number of rows and columns where rows represent <em>p</em> points and columns represent <em>k</em> dimensions of each point.
-By default <code>formatBlock</code> will perform generalised Procustes analysis (gpa) on the block using <code>gpagen</code> from the <code>geomorph</code> package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set <code>gpa = FALSE</code>. Centroid sizes of the original configurations should be supplied using the <code>cs</code> argument if <code>gpa = FALSE</code>, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
+By default <code>formatBlock</code> will perform generalized Procustes analysis (gpa) on the block using <code>gpagen</code> from the <code>geomorph</code> package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set <code>gpa = FALSE</code>. Centroid sizes of the original configurations should be supplied using the <code>cs</code> argument if <code>gpa = FALSE</code>, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
 <code>formatBlock</code> is a wrapper function for the <code>cSize</code> function from the <code>Morpho</code> package (Schlager 2017), and the <code>gpagen</code>, <code>two.d.array</code> and <code>arrayspecs</code> functions from the <code>geomorph</code> package (Adams and Otárola-Castillo 2013).</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 

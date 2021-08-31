@@ -31,7 +31,7 @@ Overview
 --------
 The multi-part objects in this example are partial wing skeletons comprised of humerus, radius and ulna. These partial wing skeletons are from 15 extant species of penguin and five fossil species of penguin, which together constitute a dataset of 60 wing bones (Table 1). 
 
-|    Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into *R* using `readPts` with `gpa = FALSE` (i.e. generalised Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
+|    Shape data from the multiple-part objects are provided as landmark configurations. Three sets of landmarks were produced for each of the digital replicas so that the replicates could be averaged to mitigate effects of placement error. The nine sets of landmark configurations (i.e. three sets from each of the three bones) were separately read into *R* using `readPts` with `gpa = FALSE` (i.e. generalized Procrustes transformation not performed) and are available by calling `morphoBlocks`. The function `readPts` is a wrapper for the `read.pts` and `cSize` functions from `Morpho` (Schlager 2017). First, load the dataset:
 
 ``` {r warnings = FALSE, message = FALSE}
 library(morphoBlocks)
@@ -54,7 +54,7 @@ uln_av <- (uln1@raw + uln2@raw + uln3@raw) / 3
 
 Prepare data blocks for analysis
 --------
-Each set of averaged landmarks can now be formatted into a data block with the `formatBlock` function. Here, we will use the *@curves* term from one of the replicates, and will set `gpa = TRUE` to perform generalised Procrustes transformation on the landmark configurations. Generalised Procrustes transformation is performed using `gpagen` from `geomorph` (Adams and Otarola-Castillo, 2013), which is called by `formatBlock`. 
+Each set of averaged landmarks can now be formatted into a data block with the `formatBlock` function. Here, we will use the *@curves* term from one of the replicates, and will set `gpa = TRUE` to perform generalized Procrustes transformation on the landmark configurations. generalized Procrustes transformation is performed using `gpagen` from `geomorph` (Adams and Otarola-Castillo, 2013), which is called by `formatBlock`. 
 
 ``` {r}
 # Format the averaged landmark configurations into data blocks

@@ -16,9 +16,9 @@ Overview
 <br /> 
 <br /> 
 
-The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularised consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.  
+The `morphoBlocks` package provides a workflow for constructing a multiple-part morphospace with regularized consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.  
 <br /> 
-The `analyseBlocks` function is applied to an object of class "blockList" produced by the `combineBlocks` function and has two options: 1) `option = "rcpca"` and 2) `option = "pca"`. The `option = "rcpca"` will perform regularised consensus principal component analysis using the `rgcca` function from the RGCCA package (Tenenhaus and Guillemot 2017), and is the default option for `analyseBlocks`. The `rgcca` function itself has many options that each perform a different type of analysis. The `analyseBlocks` function specifically calls the regularised consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). The `option = "pca"` will perform principal component analysis on the superblock item in the block list using the `prcomp` function from the `stats` package in R.
+The `analyseBlocks` function is applied to an object of class "blockList" produced by the `combineBlocks` function and has two options: 1) `option = "rcpca"` and 2) `option = "pca"`. The `option = "rcpca"` will perform regularized consensus principal component analysis using the `rgcca` function from the RGCCA package (Tenenhaus and Guillemot 2017), and is the default option for `analyseBlocks`. The `rgcca` function itself has many options that each perform a different type of analysis. The `analyseBlocks` function specifically calls the regularized consensus principal component analysis in mode 2 option with scaling applied. For further detail see Tenenhaus and Guillemot (2017) and Tenenhaus et al. (2017). The `option = "pca"` will perform principal component analysis on the superblock item in the block list using the `prcomp` function from the `stats` package in R.
 
 <br />  
 
@@ -64,7 +64,7 @@ For example usage with real world data:
 vignette("penguinWings")
 ```
 
-Or to compare the performance of regularised consensus principal component analysis (RCPCA) with traditional principal components analysis (PCA):
+Or to compare the performance of regularized consensus principal component analysis (RCPCA) with traditional principal components analysis (PCA):
 
 ``` r
 vignette("morphoBlocksMethods")

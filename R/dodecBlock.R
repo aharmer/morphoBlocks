@@ -1,6 +1,6 @@
 #' @title Simulate a data block of landmark configurations
 #'
-#' @description Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedron represent a landmark configuration with \emph{p = 20} points in \emph{k = 3} dimensions. The data block is transformed using generalised Procrustes analysis.
+#' @description Generates a block of \emph{n} dodecahedra where the vertices of each dodecahedron represent a landmark configuration with \emph{p = 20} points in \emph{k = 3} dimensions. The data block is transformed using generalized Procrustes analysis.
 #'
 #' @param n	the number of configurations to generate for the data block. Default is 10. Must be 2 or greater.
 #' @param dist_x,dist_y,dist_z optional integer or vector to specify a distance along the stated axis (i.e. \code{dist_x} for the x axis) for translating the configurations. If no value is specified then configurations will not be translated. If a single integer is supplied (e.g. \code{dist_x = 1}) then all configurations will be translated along an axis by the same amount. If a vector of length \emph{n} is supplied (e.g. \code{dist_x = 1:10}) then each configuration will be translated by a value corresponding to its position in the vector.
@@ -10,7 +10,7 @@
 #' @param vertex_shift optional integer or vector to specify a distance along the z axis for translating the first vertex in each configuration. This argument can be used to introduce variation into the data block. If no value is specified then vertex 1 in each configuration will not be translated. If a single integer is supplied (e.g. \code{vertex_shift = 1}) then vertex 1 in all configurations will be translated along the z axis by the same amount. If a vector of length \emph{n} is supplied (e.g. \code{vertex_shift = 1:10}) then vertex 1 in each configuration will be translated by a value corresponding to its position in the vector. Things get really fun when you use both \code{vertex_shift} and \code{theta_z} together (see example 2 below).
 #' @param plot a logical value indicating whether the configurations should be plotted. Default is FALSE.
 #'
-#' @details \code{dodecBlock} builds a data block of configurations that have been transformed using generalised Procrustes analysis. The resulting data block is a three dimensional array with \emph{n = 2} or greater configurations, with each configuration represented by \emph{p = 20} points that have \emph{k = 3} dimensions. Several objects are calculated for downstream analyses including centroid sizes for each configuration.
+#' @details \code{dodecBlock} builds a data block of configurations that have been transformed using generalized Procrustes analysis. The resulting data block is a three dimensional array with \emph{n = 2} or greater configurations, with each configuration represented by \emph{p = 20} points that have \emph{k = 3} dimensions. Several objects are calculated for downstream analyses including centroid sizes for each configuration.
 #' \code{formatBlock} uses the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Ot?rola-Castillo 2013).
 #'
 #' @return a 'blockList' object of \emph{n} dodecahedra, used for downstream analyses. The list contains the elements:

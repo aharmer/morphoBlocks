@@ -24,7 +24,7 @@ formatBlock(
 
 \item{k}{number of dimensions that each point within the data block has. Required for configurations presented as a two-dimensional matrix. \code{k = 2} by default, but is updated when data are presented as a three-dimensional array.}
 
-\item{gpa}{a logical value indicating whether generalised Procrustes analyses should be performed. Default is \code{TRUE}.}
+\item{gpa}{a logical value indicating whether generalized Procrustes analyses should be performed. Default is \code{TRUE}.}
 }
 \value{
 a 'block' object, used for downstream analyses. The list contains the elements:
@@ -44,11 +44,11 @@ a 'block' object, used for downstream analyses. The list contains the elements:
 \item{n}{number of configurations included in each data block}
 }
 \description{
-Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. \code{formatBlock} is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalised Procrustes Surface Analysis (Pomidor et al. 2016).
+Organises data representing a block of landmark configurations (or pseudolandmark configurations) into a single data block. \code{formatBlock} is useful for formatting a data block of configurations from sources other than Landmark Editor (Wiley et al. 2005) or Generalized Procrustes Surface Analysis (Pomidor et al. 2016).
 }
 \details{
 \code{formatBlock} expects configurations to be presented as either a two-dimensional matrix or a three-dimensional array. If data are presented as a two-dimensional matrix then the number of \emph{k} dimensions for the landmarks (or pseudolandmarks) must be specified (default \code{k = 2}), each configuration should be a separate row in the matrix, and columns should contain corresponding points and dimensions in each configuration. If data are presented as a three-dimensional array then each of the \emph{n} configurations should be a separate matrix in the array (i.e. \code{array[p, k, n]}), and each matrix should have the same number of rows and columns where rows represent \emph{p} points and columns represent \emph{k} dimensions of each point.
-By default \code{formatBlock} will perform generalised Procustes analysis (gpa) on the block using \code{gpagen} from the \code{geomorph} package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set \code{gpa = FALSE}. Centroid sizes of the original configurations should be supplied using the \code{cs} argument if \code{gpa = FALSE}, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
+By default \code{formatBlock} will perform generalized Procustes analysis (gpa) on the block using \code{gpagen} from the \code{geomorph} package (Adams and Otárola-Castillo 2013). Curve and surface information must be supplied if they are required. Centroid size will be calculated from the original configurations before Procrustes transformation. If gpa is not required then set \code{gpa = FALSE}. Centroid sizes of the original configurations should be supplied using the \code{cs} argument if \code{gpa = FALSE}, or else centroid sizes will be calculated from the (presumably Procrustes-transformed) configurations that are supplied.
 \code{formatBlock} is a wrapper function for the \code{cSize} function from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
 }
 \examples{

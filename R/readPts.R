@@ -4,9 +4,9 @@
 #'
 #' @param dirpath the directory path where two or more landmark configurations with  .pts extensions will be found.
 #' @param landmarkRM a vector of landmarks to be excluded from the data block.
-#' @param gpa a logical value indicating whether generalised Procrustes analyses should be performed. Default is \code{TRUE}.
+#' @param gpa a logical value indicating whether generalized Procrustes analyses should be performed. Default is \code{TRUE}.
 #'
-#' @details \code{readPts} reads landmark configurations from .pts files into the \R environment, organises the configurations into a single array, and performs generalised Procrustes analysis on the array if required. Several objects are calculated for downstream analyses including centroid sizes for each landmark configuration.
+#' @details \code{readPts} reads landmark configurations from .pts files into the \R environment, organises the configurations into a single array, and performs generalized Procrustes analysis on the array if required. Several objects are calculated for downstream analyses including centroid sizes for each landmark configuration.
 #' \code{readPts} is a wrapper function for the \code{read.pts} and \code{cSize} functions from the \code{Morpho} package (Schlager 2017), and the \code{gpagen}, \code{two.d.array} and \code{arrayspecs} functions from the \code{geomorph} package (Adams and Otárola-Castillo 2013).
 #' Landmarks are identified by their sequence within the configuration, which is an important consideration when excluding landmarks from the data block. For example, \code{landmarkRM = c(1,3)} would remove the first and third landmarks from all configurations once they were read into the \R environment, and thus the data block would not include landmark 1 and landmark 3. The \code{landmarkRM} term might be used for analyses that want to test the sensitivity of dataset covariation on one or more landmarks.
 #'
