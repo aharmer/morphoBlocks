@@ -8,7 +8,7 @@ Authors@R: c(
     person("Aaron", "Harmer", role = c("aut", "cre"))
     )
 Maintainer: Daniel Thomas <d.b.thomas@massey.ac.nz>
-Description: The 'morphoBlocks' package provides a workflow for constructing a multiple-part morphospace with regularized consensus principal component analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
+Description: The 'morphoBlocks' package provides a workflow for constructing a multiple-part morphospace with Regularized Consensus Principal Component Analysis (RCPCA) using either traditional landmarks or pseudolandmarks.
 Depends: R (>= 3.5.0)
 License: GPL-3
 Encoding: UTF-8

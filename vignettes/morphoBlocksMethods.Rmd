@@ -29,7 +29,7 @@ library(kableExtra)
 
 Overview
 --------
-An example comparing the results of the PCA and RCPCA analysis options in the `analyeBlocks` function. The `pca` option scales and combines data blocks into a superblock so that samples no longer retain the multi-part structure, and then applies principal component analysis. The `rcpca` option retains the multi-part structure, and also uses the scaled and combined superblock, and then applies regularized consensus principal component analysis. This example uses the `dodecBlock` function to simulate data blocks of shape configurations with known variation and a small amount of random noise.
+An example comparing the results of the PCA and RCPCA analysis options in the `analyeBlocks` function. The `pca` option scales and combines data blocks into a superblock so that samples no longer retain the multi-part structure, and then applies principal component analysis. The `rcpca` option retains the multi-part structure, and also uses the scaled and combined superblock, and then applies Regularized Consensus Principal Component Analysis. This example uses the `dodecBlock` function to simulate data blocks of shape configurations with known variation and a small amount of random noise.
 
 &nbsp;
 
@@ -165,10 +165,10 @@ scoresPlot(result.pca, comp = c(2, 3), plabels = 1:10)
 
 &nbsp;
 
-regularized consensus principal component analysis of scaled dataset
+Regularized Consensus Principal Component Analysis of scaled dataset
 --------
 
-regularized consensus principal component analysis (mode 2) is performed on the block list using `analyseBlocks` with `option = "rcpca"`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus and Guillemot, 2017). 
+Regularized Consensus Principal Component Analysis (mode 2) is performed on the block list using `analyseBlocks` with `option = "rcpca"`, which calls `rgcca` from the Regularized Generalized Canonical Correlation Analysis package (`RGCCA`, Tenenhaus and Guillemot, 2017). 
 
 ``` {r}
 # Analyse block list
@@ -198,12 +198,12 @@ loadingsPlot(result.rcpca, comp = 2, cex.3d = 10)
 
 
 ![](../man/figures/loadingsPlotExample04.png)
-Figure 4. Global component one loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key.
+Figure 4. Global component one loadings from a Regularized Consensus Principal Component Analysis of simulated shape data. See Figure 1 for key.
 
 &nbsp;
 
 ![](../man/figures/loadingsPlotExample05.png)
-Figure 5. Global component two loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key.
+Figure 5. Global component two loadings from a Regularized Consensus Principal Component Analysis of simulated shape data. See Figure 1 for key.
 
 &nbsp;
 
@@ -221,7 +221,7 @@ scoresPlot(result.rcpca, comp = c(2, 3), plabels = 1:10, consensus.only = TRUE)
 Conclusion
 --------
 
-Principal component analysis on scaled and combined data blocks (i.e. `analyseBlocks`, `option = "pca"`) and regularized consensus principal component analysis on the list of data blocks (i.e. `analyseBlocks`, `option = "rcpca"`) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.
+Principal component analysis on scaled and combined data blocks (i.e. `analyseBlocks`, `option = "pca"`) and Regularized Consensus Principal Component Analysis on the list of data blocks (i.e. `analyseBlocks`, `option = "rcpca"`) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.
 
 &nbsp;
 
@@ -229,7 +229,7 @@ References
 --------
 * Collyer, M. L., Davis, M. A., Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. https://doi.org/10.1007/s11692-020-09503-z
 
-* Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+* Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and Sparse Generalized Canonical Correlation Analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
 
 &nbsp;
 &nbsp;

@@ -21,7 +21,7 @@ scoresPlot(
 
 \item{plabels}{optional user-supplied vector of labels for labelling points in scores plot.}
 
-\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using regularized consensus principal component analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
+\item{consensus.only}{a logical value (default value \code{FALSE}), relevant only if analyses were performed using Regularized Consensus Principal Component Analysis (i.e. \code{analyseBlocks}, \code{option = 'rcpca'}). If \code{TRUE}, only plot the global scores and the consensus space.}
 }
 \value{
 a two-dimensional scatterplot
@@ -49,7 +49,7 @@ scoresPlot(result2,
 
 }
 \references{
-Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
+Tenenhaus A, Guillemot V. 2017. RGCCA: Regularized and Sparse Generalized Canonical Correlation Analysis for multiblock data 2.1.2. https://CRAN.R-project.org/package=RGCCA.
 
-Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized generalized canonical correlation analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
+Tenenhaus M, Tenenhaus A, Groenen PJF. 2017. Regularized Generalized Canonical Correlation Analysis: A framework for sequential multiblock component methods. Psychometrika 82: 737-777 https://doi.org/10.1007/s11336-017-9573-x
 }

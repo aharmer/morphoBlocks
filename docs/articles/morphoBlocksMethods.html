@@ -114,7 +114,7 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>An example comparing the results of the PCA and RCPCA analysis options in the <code>analyeBlocks</code> function. The <code>pca</code> option scales and combines data blocks into a superblock so that samples no longer retain the multi-part structure, and then applies principal component analysis. The <code>rcpca</code> option retains the multi-part structure, and also uses the scaled and combined superblock, and then applies regularized consensus principal component analysis. This example uses the <code>dodecBlock</code> function to simulate data blocks of shape configurations with known variation and a small amount of random noise.</p>
+<p>An example comparing the results of the PCA and RCPCA analysis options in the <code>analyeBlocks</code> function. The <code>pca</code> option scales and combines data blocks into a superblock so that samples no longer retain the multi-part structure, and then applies principal component analysis. The <code>rcpca</code> option retains the multi-part structure, and also uses the scaled and combined superblock, and then applies Regularized Consensus Principal Component Analysis. This example uses the <code>dodecBlock</code> function to simulate data blocks of shape configurations with known variation and a small amount of random noise.</p>
 <p> </p>
 </div>
 <div id="model-dataset" class="section level2">
@@ -999,10 +999,10 @@ Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and
 <span class="co"># Figure 5</span>
 <span class="fu"><a href="../reference/loadingsPlot.html">loadingsPlot</a></span><span class="op">(</span><span class="va">result.rcpca</span>, comp <span class="op">=</span> <span class="fl">2</span>, cex.3d <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></code></pre></div>
 <p><img src="../reference/figures/loadingsPlotExample04.png"></p>
-<p>Figure 4. Global component one loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key.</p>
+<p>Figure 4. Global component one loadings from a Regularized Consensus Principal Component Analysis of simulated shape data. See Figure 1 for key.</p>
 <p> </p>
 <p><img src="../reference/figures/loadingsPlotExample05.png"></p>
-<p>Figure 5. Global component two loadings from a regularized consensus principal component analysis of simulated shape data. See Figure 1 for key.</p>
+<p>Figure 5. Global component two loadings from a Regularized Consensus Principal Component Analysis of simulated shape data. See Figure 1 for key.</p>
 <p> </p>
 <p>Global component one distinguishes sample 1 and sample 2 from the remaining samples (i.e. largest source of variation in the dataset) (Figure 6). Global component two distinguishes samples three, four, five and six from samples seven, eight, nine and ten (i.e. second largest source of variation in the dataset), and also shows the similarity between sample one and samples three to six, and sample two and samples seven to ten (i.e. third largest source of variation in the dataset) (Figure 6). The clustered samples three to six, and seven to ten, are offset from one another along GC2, which indicates that the random noise is also being explained by this global component. Hence, the four sources of variation that were intentionally introduced into the dataset are explained by the first two global components of CPCA. The second global component of the CPCA consensus space also explains the random noise which was not explained by PC2 and was weakly explained by PC3 in the principal component analysis (Figure 3). In summary, GC1 and GC2 from CPCA integrate all of the variation in dataset.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
@@ -1020,7 +1020,7 @@ Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 
 <div id="conclusion" class="section level2">
 <h2 class="hasAnchor">
 <a href="#conclusion" class="anchor"></a>Conclusion</h2>
-<p>Principal component analysis on scaled and combined data blocks (i.e. <code>analyseBlocks</code>, <code>option = "pca"</code>) and regularized consensus principal component analysis on the list of data blocks (i.e. <code>analyseBlocks</code>, <code>option = "rcpca"</code>) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.</p>
+<p>Principal component analysis on scaled and combined data blocks (i.e. <code>analyseBlocks</code>, <code>option = "pca"</code>) and Regularized Consensus Principal Component Analysis on the list of data blocks (i.e. <code>analyseBlocks</code>, <code>option = "rcpca"</code>) produce similar score value distributions for the first two components. However, the weaker sources of variation in the PCA are dampened in PC1 and PC2, whereas these weaker sources of variation are observable alongside stronger sources of variation in the first two components of the RCPCA consensus space. Thus, CPCA is better able to explain variation in the dataset in the first few components when compared with PCA.</p>
 <p> </p>
 </div>
 <div id="references" class="section level2">
@@ -1028,7 +1028,7 @@ Figure 6. Global component one (GC1) and two (GC2) score values (left), and GC2 
 <a href="#references" class="anchor"></a>References</h2>
 <ul>
 <li><p>Collyer, M. L., Davis, M. A., Adams, D. C. (2020). Making heads or tails of combined landmark configurations in geometric morphometric data. Evolutionary Biology, 47, 193-205. <a href="https://doi.org/10.1007/s11692-020-09503-z" class="uri">https://doi.org/10.1007/s11692-020-09503-z</a></p></li>
-<li><p>Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and sparse generalized canonical correlation analysis for multiblock data 2.1.2. <a href="https://CRAN.R-project.org/package=RGCCA" class="uri">https://CRAN.R-project.org/package=RGCCA</a>.</p></li>
+<li><p>Tenenhaus, A., Guillemot, V. (2017). RGCCA: Regularized and Sparse Generalized Canonical Correlation Analysis for multiblock data 2.1.2. <a href="https://CRAN.R-project.org/package=RGCCA" class="uri">https://CRAN.R-project.org/package=RGCCA</a>.</p></li>
 </ul>
 <p>   </p>
 </div>
