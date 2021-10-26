@@ -219,9 +219,17 @@ By default <code>formatBlock</code> will perform generalized Procustes analysis 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Format the head and tail data from the Plethodon dataset in the geomorph library</span>
+
+<span class='co'># Load the geomorph package</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://github.com/geomorphR/geomorph'>geomorph</a></span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>Loading required package: RRPP</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: rgl</span></div><div class='output co'>#&gt; <span class='message'>Loading required package: Matrix</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>larvalMorph</span><span class='op'>)</span>
+
+<span class='co'># Access the Plethodon head and tail landmark data from the larvalMorph dataset</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>larvalMorph</span><span class='op'>)</span>
+
+<span class='co'># Format the Plethodon head data as block 1 (requires specifying mapping information for the curve semilandmarks)</span>
 <span class='va'>block1</span> <span class='op'>&lt;-</span> <span class='fu'>formatBlock</span><span class='op'>(</span>block <span class='op'>=</span> <span class='va'>larvalMorph</span><span class='op'>$</span><span class='va'>headcoords</span>, curves <span class='op'>=</span> <span class='va'>larvalMorph</span><span class='op'>$</span><span class='va'>head.sliders</span><span class='op'>)</span>
+
+<span class='co'># Format the Plethodon tail data as block 2 (requires specifying mapping information for the curve semilandmarks)</span>
 <span class='va'>block2</span> <span class='op'>&lt;-</span> <span class='fu'>formatBlock</span><span class='op'>(</span>block <span class='op'>=</span> <span class='va'>larvalMorph</span><span class='op'>$</span><span class='va'>tailcoords</span>, curves <span class='op'>=</span> <span class='va'>larvalMorph</span><span class='op'>$</span><span class='va'>tail.sliders</span><span class='op'>)</span>
 
 </div></pre>

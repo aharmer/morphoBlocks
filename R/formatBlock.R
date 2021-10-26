@@ -29,9 +29,17 @@
 #'
 #' @examples
 #' # Format the head and tail data from the Plethodon dataset in the geomorph library
+#'
+#' # Load the geomorph package
 #' library(geomorph)
+#'
+#' # Access the Plethodon head and tail landmark data from the larvalMorph dataset
 #' data(larvalMorph)
+#'
+#' # Format the Plethodon head data as block 1 (requires specifying mapping information for the curve semilandmarks)
 #' block1 <- formatBlock(block = larvalMorph$headcoords, curves = larvalMorph$head.sliders)
+#'
+#' # Format the Plethodon tail data as block 2 (requires specifying mapping information for the curve semilandmarks)
 #' block2 <- formatBlock(block = larvalMorph$tailcoords, curves = larvalMorph$tail.sliders)
 #'
 #' @importFrom geomorph arrayspecs gpagen two.d.array
