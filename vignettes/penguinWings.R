@@ -42,13 +42,13 @@ result <- analyseBlocks(blocklist, ncomp = 10)
 pcol <- c("#ffffff", "#ffffff", "#ffffff", "#ffffff", "#e6b481", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#feebd3", "#feebd3", "#ffffff", "#e6b481", "#feebd3", "#ffffff")
 
 
-# Plot consensus space showing global component one (GC1) and global component one (GC2)
+# Plot consensus space showing global component one (GC1) and global component two (GC2)
 
 scoresPlot(result, pcol = pcol)
 
 ## ----eval = FALSE-------------------------------------------------------------
 #  # Plot loadings for global component one (GC1)
-#  
+#
 #  loadingsPlot(result, cex.3d = 15)
 
 ## ----echo = FALSE, loadingsPlot01, fig.align = "center", out.width = "90%"----
