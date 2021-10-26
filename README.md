@@ -73,7 +73,7 @@ Planned improvements
 ---------------------
 
 * Unit testing
-* Add a ... arguments to scoresPlot and loadingsPlot to allow additional plotting customisation
+* Add ... argument to scoresPlot and loadingsPlot to allow additional plotting customisation
 *	Replace block identification by letters with block identification by numbers in `combineBlocks`
 *	Add more comments to function examples
 *	Add functionality for showing warps
