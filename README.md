@@ -69,6 +69,13 @@ Or to compare the performance of Regularized Consensus Principal Component Analy
 vignette("morphoBlocksMethods")
 ```
 
+Or to compare how long analyses will take given increasingly large datasaets, in a particular computational environment (e.g. a local machine):
+
+```r
+vignette("datasetSize")
+
+
+
 Planned improvements
 ---------------------
 
