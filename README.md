@@ -73,7 +73,7 @@ Or to compare how long analyses will take given increasingly large datasaets, in
 
 ```r
 vignette("datasetSize")
-
+```
 
 
 Planned improvements
