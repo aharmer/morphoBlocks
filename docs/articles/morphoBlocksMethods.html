@@ -974,8 +974,8 @@ Figure 3. Principal component one (PC1) and PC2 score values (left), and PC2 and
 </div>
 <div id="Regularized-consensus-principal-component-analysis-of-scaled-dataset" class="section level2">
 <h2 class="hasAnchor">
-<a href="#Regularized-consensus-principal-component-analysis-of-scaled-dataset" class="anchor"></a>Regularized consensus principal component analysis of scaled dataset</h2>
-<p>Regularized consensus principal component analysis (mode 2) is performed on the block list using <code>analyseBlocks</code> with <code>option = "rcpca"</code>, which calls <code>rgcca</code> from the Regularized Generalized Canonical Correlation Analysis package (<code>RGCCA</code>, Tenenhaus and Guillemot, 2017).</p>
+<a href="#Regularized-consensus-principal-component-analysis-of-scaled-dataset" class="anchor"></a>Regularized Consensus Principal Component Analysis of scaled dataset</h2>
+<p>Regularized Consensus Principal Component Analysis (mode 2) is performed on the block list using <code>analyseBlocks</code> with <code>option = "rcpca"</code>, which calls <code>rgcca</code> from the Regularized Generalized Canonical Correlation Analysis package (<code>RGCCA</code>, Tenenhaus and Guillemot, 2017).</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Analyse block list</span>
 <span class="va">result.rcpca</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/analyseBlocks.html">analyseBlocks</a></span><span class="op">(</span><span class="va">block.list</span>, option <span class="op">=</span> <span class="st">"rcpca"</span>, ncomp <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></code></pre></div>
