@@ -89,6 +89,7 @@ Planned improvements
 
 How to cite
 ---------------------
+Thomas, D. B., Harmer, A. M. T., Giovanardi, S., Holvast, E. J., McGoverin, C. M., & Tenenhaus, A. (2021). Constructing a multiple-part morphospace using a multiblock method. Methods in Ecology and Evolution, 00, 1– 12. https://doi.org/10.1111/2041-210X.13781
 
 References
 ----------
